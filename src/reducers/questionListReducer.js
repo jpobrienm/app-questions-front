@@ -1,24 +1,24 @@
-import { answerInitialState as initialState} from "../initialStates/answerInitialState";
-import { answerActionTypes as types } from "../actionTypes/answerActionTypes";
+import { questionListInitialState as initialState} from "../initialStates/questionListInitialState";
+import { questionListActionTypes as types } from "../actionTypes/questionListActionTypes";
 
-export const answerReducer = (state=initialState, {type, payload}) =>{
+export const questionListReducer = (state=initialState, {type, payload}) =>{
     switch(type){
-        case types.LOADING_ANSWER:
+        case types.LOADING_QUESTION_LIST:
             return(
                 {
                     ...state,
                     loading:true,
                 }
             );
-        case types.LOAD_ANSWER_SUCCESS:
+        case types.LOAD_QUESTION_LIST_SUCCESS:
             return(
                 {
                     ...state,
                     loading:false,
-                    answer:payload
+                    questionList:payload
                 }
             );
-        case types.LOAD_ANSWER_ERROR:
+        case types.LOAD_QUESTION_ERROR:
             return(
                 {
                     ...state,

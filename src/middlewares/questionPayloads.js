@@ -6,11 +6,23 @@ export const loadQuestionById = (id) => (dispatch) => {
 
     dispatch(questionLoading());
 
-    const option = options(id).getByIdOption;
+    const option = options(id).getById;
 
     axios.request(option).then(function(response){
         dispatch(questionLoadSuccess(response.data))
     }).catch(function(error){
         dispatch(questionLoadError(error.message))
     });
+}
+
+export const createQuestion = (question) => {
+    
+    const option = options(question).createQuestion;
+
+    axios.request(option).then(function(response){
+        console.log(response.data);
+    }).catch(function(error){
+        console.log(error.message);
+    });
+
 }

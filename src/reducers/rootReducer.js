@@ -1,13 +1,15 @@
 import { combineReducers } from 'redux';
 import { questionReducer } from './questionReducer';
-import { answerReducer } from './answerReducer';
+import { answerListReducer } from './answerListReducer';
+import { questionListReducer } from './questionListReducer';
 
 
 export const rootReducer = () =>{
     return combineReducers(
         {
             question: questionReducer,
-            answer: answerReducer
+            questionList: questionListReducer,
+            answerList: answerListReducer
         }
     );
 }
