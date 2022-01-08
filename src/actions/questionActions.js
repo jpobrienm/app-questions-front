@@ -12,7 +12,7 @@ export const questionLoading = () =>{
 export const questionLoadSuccess = (question) => {
     return (
         {
-            type: types.LOAD_SUCCESS,
+            type: types.LOAD_QUESTION_SUCCESS,
             payload:question
         }
     );
@@ -21,7 +21,7 @@ export const questionLoadSuccess = (question) => {
 export const questionLoadError = (error) => {
     return (
         {
-            type: types.LOAD_ERROR,
+            type: types.LOAD_QUESTION_ERROR,
             payload: error
         }
     );

@@ -9,11 +9,11 @@ export const answerLoading = () =>{
     );
 }
 
-export const answerLoadSuccess = (asnwer) => {
+export const answerLoadSuccess = (answer) => {
     return (
         {
-            type: types.LOAD_SUCCESS,
-            payload:question
+            type: types.LOAD_ANSWER_SUCCESS,
+            payload:answer
         }
     );
 }
@@ -21,7 +21,7 @@ export const answerLoadSuccess = (asnwer) => {
 export const answerLoadError = (error) => {
     return (
         {
-            type: types.LOAD_ERROR,
+            type: types.LOAD_ANSWER_ERROR,
             payload: error
         }
     );

@@ -10,7 +10,7 @@ export const answerReducer = (state=initialState, {type, payload}) =>{
                     loading:true,
                 }
             );
-        case types.LOAD_SUCCESS:
+        case types.LOAD_ANSWER_SUCCESS:
             return(
                 {
                     ...state,
@@ -18,7 +18,7 @@ export const answerReducer = (state=initialState, {type, payload}) =>{
                     answer:payload
                 }
             );
-        case types.LOAD_ERROR:
+        case types.LOAD_ANSWER_ERROR:
             return(
                 {
                     ...state,

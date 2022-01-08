@@ -1,5 +1,5 @@
 export const questionInitialState = {
     loading: null,
-    answer: null,
+    question: null,
     error: null
 }

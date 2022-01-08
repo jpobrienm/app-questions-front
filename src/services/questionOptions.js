@@ -4,7 +4,7 @@ export const questionOptions = (id="") => {
         {
             getByIdOption:{
                 method: 'GET',
-                url: `http://localhost:8080/preguntas/id=${id}`,
+                url: `http://localhost:8080/preguntas/${id}`,
                 headers: {'Content-Type': 'application/json'}
                 }
         }
