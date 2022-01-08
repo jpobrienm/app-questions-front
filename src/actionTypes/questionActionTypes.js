@@ -1,0 +1,5 @@
+export const questionActionTypes = {
+    LOADING_QUESTION:"LOADING_QUESTION",
+    LOAD_SUCCESS:"LOAD_SUCCESS",
+    LOAD_ERROR:"LOAD_ERROR"
+}
