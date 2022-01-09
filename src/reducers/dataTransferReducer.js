@@ -6,7 +6,12 @@ export const dataTransferReducer = (state=initialState, {type, payload}) =>{
         case(types.USER_CREATED):
             return({
                 ...state,
-                user:payload
+                userData:payload
+            })
+        case(types.QUESTION_DELETED):
+            return({
+                ...state,
+                questionData: null
             })
         default:
             return state;

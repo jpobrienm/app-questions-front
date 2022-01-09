@@ -3,7 +3,7 @@ import { questionListActionTypes as types } from "../actionTypes/questionListAct
 
 export const questionListLoading = () =>{
     return({
-            type: types.LOADING_QUESTION_LIST
+            type: types.LOADING_QUESTION_LIST,
         }
     );
 }
@@ -11,7 +11,7 @@ export const questionListLoading = () =>{
 export const questionListLoadSuccess = (questionList) => {
     return ({
             type: types.LOAD_QUESTION_LIST_SUCCESS,
-            payload:questionList
+            payload:questionList,
         }
     );
 }
@@ -19,7 +19,7 @@ export const questionListLoadSuccess = (questionList) => {
 export const questionListLoadError = (error) => {
     return ({
             type: types.LOAD_QUESTION_LIST_ERROR,
-            payload: error
+            payload: error,
         }
     );
 }

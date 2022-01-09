@@ -1,4 +1,6 @@
 import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {questionListLoading} from "../actions/questionListActions";
 
 
 
@@ -26,11 +28,17 @@ const privateNavbarOptions =[
 
 export const PrivateNavbar = () =>{
 
+    const dispatch = useDispatch();
+
+    const handleNavigate = () =>{
+        dispatch(questionListLoading());
+    }
+
     return(
         <nav>
             <section>
                 {privateNavbarOptions.map((e,index) =>
-                { return (<Link key={index} to={e.url}>{e.titulo}</Link>)})}
+                { return (<Link key={index} to={e.url} onClick={handleNavigate}>{e.titulo} </Link>)})}
             </section>
         </nav>
     )

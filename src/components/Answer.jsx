@@ -1,5 +1,8 @@
 
 export const Answer = ({answer}) => {
+
+
+
     return(
         <div>
             <div>{answer.id}</div>

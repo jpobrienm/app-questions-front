@@ -4,8 +4,6 @@ import axios from "axios";
 
 export const loadAllQuestions = () => (dispatch) => {
 
-    dispatch(questionListLoading());
-
     const option = options().getAll;
 
     axios.request(option).then(function(response){

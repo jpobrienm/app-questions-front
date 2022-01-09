@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {useForm} from "react-hook-form";
 import {useNavigate} from "react-router-dom";
+import {questionListLoading} from "../actions/questionListActions";
 
 export const CreateQuestion = () =>{
 
@@ -15,6 +16,7 @@ export const CreateQuestion = () =>{
     const onSubmit = (data) => {
         data.userId = userData.id;
         dispatch(createQuestion(data));
+        dispatch(questionListLoading())
         navigate("/mispreguntas")
     }
 
@@ -29,8 +31,8 @@ export const CreateQuestion = () =>{
                   <option disabled type="String" value="" >Type</option>
                   <option type="String" value="OPEN">OPEN (LONG OPEN BOX)</option>
                         <option type="String" value="OPINION">OPINION (SHORT OPEN BOX)</option>
-                        <option type="String" value="WITH RESULT">WITH RESULT (OPEN BOX WITH LINK)</option>
-                        <option type="String" value="WITH EVIDENCE">WITH EVIDENCE (OPEN BOX WITH VIDEO)</option>
+                        <option type="String" value="WITH_RESULT">WITH RESULT (OPEN BOX WITH LINK)</option>
+                        <option type="String" value="WITH_EVIDENCE">WITH EVIDENCE (OPEN BOX WITH VIDEO)</option>
                 </select>
                 <label className=" font-medium">Category</label>
                 <select {...register("category")} required name="category"  defaultValue="Category" className="" >

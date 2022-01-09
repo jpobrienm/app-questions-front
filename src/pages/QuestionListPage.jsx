@@ -12,10 +12,12 @@ export const QuestionListPage = (type) => {
     const {loading, questionList, error} = useSelector(state => state.questionList);
 
     useEffect(() =>{
-        type.type ==="all"? dispatch(loadAllQuestions()):
-                            dispatch(loadAllQuestionsByUserId(user.id))
-
-    }, [questionList])
+        if(loading){
+            type.type ==="all"?
+                dispatch(loadAllQuestions()):
+                dispatch(loadAllQuestionsByUserId(user.id))
+        }
+    }, [loading])
 
     return (
         <div>
