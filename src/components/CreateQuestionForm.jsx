@@ -1,37 +1,39 @@
 import { createQuestion } from "../middlewares/questionPayloads";
 import { useState, useEffect } from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {useForm} from "react-hook-form";
+import {useNavigate} from "react-router-dom";
 
 export const CreateQuestion = () =>{
 
-    // CAMBIAR POR EL USESELECTOR DE AUTHSTATE (CREAR AUTHSTATE)
-    let initialState = {
-                    questionBody:null,
-                    category: null,
-                    type: null
-                    }
+    const userData = useSelector(state => state.user.user)
 
-    const [form, setForm] = useState(initialState)
+    const {register, handleSubmit} = useForm()
+    const dispatch = useDispatch();
+    const navigate = useNavigate()
 
-    const submitForm = (e) => {
-        e.preventDefault();
-        createQuestion()
+    const onSubmit = (data) => {
+        data.userId = userData.id;
+        dispatch(createQuestion(data));
+        navigate("/mispreguntas")
     }
 
+
+
     return(
-        <form ref={form} onSubmit={submitForm}>
+        <form onSubmit={handleSubmit(onSubmit)}>
                 <label>Añadir nueva pregunta</label>
-                <input required name="question" type="text" placeholder='Ingresa una pregunta acá'></input>
-                <input  required name="userId" hidden type="text" placeholder='Ingresa una pregunta acá'></input>
+                <input {...register("questionBody")} required name="questionBody" type="text" placeholder='Ingresa una pregunta acá' />
                 <label className=" font-medium">Type</label>
-                <select required className="" name="type" defaultValue="Type">
-                  <option disabled type="String" value="">Type</option>
+                <select {...register("type")} required className="" name="type" defaultValue="Type" >
+                  <option disabled type="String" value="" >Type</option>
                   <option type="String" value="OPEN">OPEN (LONG OPEN BOX)</option>
                         <option type="String" value="OPINION">OPINION (SHORT OPEN BOX)</option>
                         <option type="String" value="WITH RESULT">WITH RESULT (OPEN BOX WITH LINK)</option>
                         <option type="String" value="WITH EVIDENCE">WITH EVIDENCE (OPEN BOX WITH VIDEO)</option>
                 </select>
                 <label className=" font-medium">Category</label>
-                <select required name="category"  defaultValue="Category"className="">
+                <select {...register("category")} required name="category"  defaultValue="Category" className="" >
                   <option disabled type="String"  value="">Category</option>
                   <option value="TECHNOLOGY_AND_COMPUTER">TECHNOLOGY AND COMPUTER</option>
                         <option value="SCIENCES">SCIENCES</option>

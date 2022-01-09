@@ -15,12 +15,14 @@ export const loadQuestionById = (id) => (dispatch) => {
     });
 }
 
-export const createQuestion = (question) => {
+export const createQuestion = (data) => (dispatch) =>{
     
-    const option = options(question).create;
+    const option = options("", data).create;
+    console.log(data)
+    console.log(option)
 
     axios.request(option).then(function(response){
-        console.log(response.data);
+        dispatch(questionLoadSuccess(response.data))
     }).catch(function(error){
         console.log(error.message);
     });

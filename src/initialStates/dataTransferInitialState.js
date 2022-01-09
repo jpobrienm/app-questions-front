@@ -1,5 +1,5 @@
 export const dataTransferInitialState = {
-    user: null,
-    question: null,
-    answer: null
+    userData: null,
+    questionData: null,
+    answerData: null
 }

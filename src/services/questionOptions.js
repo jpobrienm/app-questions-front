@@ -1,5 +1,5 @@
 
-export const questionOptions = (id="", question="") => {
+export const questionOptions = (id="", data={}) => {
     return(
         {
             getById:{
@@ -12,7 +12,7 @@ export const questionOptions = (id="", question="") => {
                 method: 'POST',
                 url: `http://localhost:8080/preguntas/crear`,
                 headers: {'Content-Type': 'application/json'},
-                data:question
+                data:data
             }
         }
     )
