@@ -1,23 +1,34 @@
 import logo from './logo.svg';
 import './App.css';
-import { QuestionPage } from './pages/QuestionPage';
-import {QuestionListPage} from './pages/QuestionListPage';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { CreateQuestionPage } from './pages/CreateQuestionPage';
-
+import {useDispatch, useSelector} from "react-redux";
+import {useEffect} from "react";
+import {userLoggedAction, userLoggingInAction} from "./actions/userActions";
+import {app} from "./webService/firebase";
+import {PrivateLayout} from "./layouts/PrivateLayout";
+import {PublicLayout} from "./layouts/PublicLayout";
 
 
 function App() {
+
+  const dispatch = useDispatch()
+  const userState = useSelector(state => state.user);
+
+
+  useEffect(()=>{
+    app.auth().onAuthStateChanged((user)=>{
+      if(user){
+        dispatch(userLoggedAction(user.uid ,
+            user.displayName,
+            user.email,
+            user.photoURL))
+      }
+    })},[])
+
+
+
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/preguntas" element={<QuestionListPage />} />
-          <Route path="/preguntas/:id" element={<QuestionPage />} />
-          <Route path="/preguntas/usuario/:userId" element={<QuestionListPage />} />
-          <Route path="/preguntas/crear" element={<CreateQuestionPage />}/>
-        </Routes>
-      </BrowserRouter>
+        {userState.user ? <PrivateLayout state={userState}/>:<PublicLayout />}
     </>
   );
 }

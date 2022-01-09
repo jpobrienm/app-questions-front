@@ -22,7 +22,7 @@ export const loadAllQuestionsByUserId = (userId) => (dispatch) =>{
     const option = options(userId).getAllbyUserId;
 
     axios.request(option).then(function(response){
-        dispatch(questionListLoadSuccess(response.data))
+        dispatch(questionListLoadSuccess(response.data));
     }).catch(function(error){
         dispatch(questionListLoadError(error.message))
     });

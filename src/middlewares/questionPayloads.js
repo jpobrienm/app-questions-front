@@ -17,7 +17,7 @@ export const loadQuestionById = (id) => (dispatch) => {
 
 export const createQuestion = (question) => {
     
-    const option = options(question).createQuestion;
+    const option = options(question).create;
 
     axios.request(option).then(function(response){
         console.log(response.data);

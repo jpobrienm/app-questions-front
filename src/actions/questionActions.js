@@ -2,16 +2,14 @@ import { questionActionTypes as types } from "../actionTypes/questionActionTypes
 
 
 export const questionLoading = () =>{
-    return(
-        {
+    return({
             type: types.LOADING_QUESTION
         }
     );
 }
 
 export const questionLoadSuccess = (question) => {
-    return (
-        {
+    return ({
             type: types.LOAD_QUESTION_SUCCESS,
             payload:question
         }
@@ -19,8 +17,7 @@ export const questionLoadSuccess = (question) => {
 }
 
 export const questionLoadError = (error) => {
-    return (
-        {
+    return ({
             type: types.LOAD_QUESTION_ERROR,
             payload: error
         }

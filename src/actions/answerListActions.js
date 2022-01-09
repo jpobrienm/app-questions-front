@@ -2,16 +2,14 @@ import { answerListActionTypes as types } from "../actionTypes/answerListActionT
 
 
 export const answerListLoading = () =>{
-    return(
-        {
+    return({
             type: types.LOADING_ANSWER_LIST
         }
     );
 }
 
 export const answerListLoadSuccess = (answerList) => {
-    return (
-        {
+    return ({
             type: types.LOAD_ANSWER_LIST_SUCCESS,
             payload:answerList
         }
@@ -19,8 +17,7 @@ export const answerListLoadSuccess = (answerList) => {
 }
 
 export const answerListLoadError = (error) => {
-    return (
-        {
+    return ({
             type: types.LOAD_ANSWER_LIST_ERROR,
             payload: error
         }

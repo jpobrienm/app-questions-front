@@ -12,18 +12,11 @@ export const QuestionListPage = () => {
     const {loading, questionList, error} = useSelector(state => state.questionList);
 
     useEffect(() =>{
-
-        console.log(typeof userId)
         if(userId===undefined){
             dispatch(loadAllQuestions());
         }
         else{
-            dispatch(() => {
-                console.log("entre")
-                console.log(userId)
-                loadAllQuestionsByUserId(userId)
-                console.log(questionList)
-            });
+            dispatch(loadAllQuestionsByUserId(userId));
         }
 
     }, [])
