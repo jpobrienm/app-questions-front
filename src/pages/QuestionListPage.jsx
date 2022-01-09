@@ -1,25 +1,20 @@
 import { useDispatch, useSelector } from "react-redux";
 import { loadAllQuestions, loadAllQuestionsByUserId} from "../middlewares/questionListPayload";
-import { useEffect } from "react";
+import {useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
 import { Question } from "../components/Question";
 
-export const QuestionListPage = () => {
-
-    const {userId} = useParams();
+export const QuestionListPage = (type) => {
 
     const dispatch = useDispatch();
+    const user = useSelector(state => state.user.user)
     const {loading, questionList, error} = useSelector(state => state.questionList);
 
     useEffect(() =>{
-        if(userId===undefined){
-            dispatch(loadAllQuestions());
-        }
-        else{
-            dispatch(loadAllQuestionsByUserId(userId));
-        }
+        type.type ==="all"? dispatch(loadAllQuestions()):
+                            dispatch(loadAllQuestionsByUserId(user.id))
 
-    }, [])
+    }, [questionList])
 
     return (
         <div>

@@ -4,10 +4,11 @@ import {userCreatedAction} from "../actions/dataTransferActions";
 import { useNavigate } from "react-router-dom"
 import { app, google } from "../webService/firebase";
 import {useEffect} from "react";
+import {createUser} from "../middlewares/dataTransferPayload";
 
 export const LoginPage = () => {
 
-    const state = useSelector(state => state.user);
+    const state = useSelector(state => state.user.user);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -20,19 +21,24 @@ export const LoginPage = () => {
     const logInHandler = () =>{
         app.auth().signInWithPopup(google)
             .then( user => {
-                dispatch(userLoggingInAction(user.user.uid,
+                dispatch(userLoggedAction(user.user.uid,
                     user.user.displayName,
                     user.user.email,
                     user.user.photoURL));
-                navigate("/preguntas/crear");
-                console.log(state)
+                navigate("/preguntas");
+                dispatch(userCreatedAction({id: user.user.uid,
+                    userName: user.user.displayName,
+                    email:user.user.email}))
+                dispatch(createUser({id: user.user.uid,
+                    userName: user.user.displayName,
+                    email:user.user.email}))
             }).catch()
     }
 
     return(
         <div>
             <h1>Home</h1>
-            {state.user?
+            {state?
                 <button className="button" onClick={logOutHandler}>
                     Log-out
                 </button>:

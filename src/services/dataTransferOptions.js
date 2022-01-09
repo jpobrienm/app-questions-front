@@ -5,7 +5,7 @@ export const dataTransferOptions = (user={})  => {
                 method: 'POST',
                 url: `http://localhost:8080/usuarios/crear`,
                 headers: {'Content-Type': 'application/json'},
-                data: {userName:user.userName, email:user.email}
+                data: {id: user.id, userName:user.userName, email:user.email}
             }
         }
     )

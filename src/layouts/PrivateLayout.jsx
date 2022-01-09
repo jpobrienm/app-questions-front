@@ -1,21 +1,21 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import {Navbar} from "../components/Navbar";
+import {PrivateNavbar} from "../components/PrivateNavbar";
 import {CreateQuestionPage} from "../pages/CreateQuestionPage";
 import {LoginPage} from "../pages/LoginPage";
 import {QuestionListPage} from "../pages/QuestionListPage";
 import {QuestionPage} from "../pages/QuestionPage";
 
 
-export const PrivateLayout = ({state}) => {
+export const PrivateLayout = () => {
     return(
         <BrowserRouter>
-            <Navbar userId={state.user.id}/>
+            <PrivateNavbar />
             <Routes>
                 <Route path="/preguntas/crear" element={<CreateQuestionPage />}/>
                 <Route path="/" element={<LoginPage />} />
-                <Route path="/preguntas" element={<QuestionListPage />} />
-                <Route path="/preguntas/:id" element={<QuestionPage />} />
-                <Route path="/preguntas/usuario/:userId" element={<QuestionListPage />}/>
+                <Route path="/preguntas" element={<QuestionListPage type={"all"} />} />
+                {/* eslint-disable-next-line no-template-curly-in-string */}
+                <Route path="/mispreguntas" element={<QuestionListPage />}/>
             </Routes>
         </BrowserRouter>
     )

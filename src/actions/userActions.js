@@ -1,9 +1,9 @@
 import { userActionTypes as types } from "../actionTypes/userActionTypes";
 
-export const userLoggingInAction = (uid, name, email, photo) =>{
+export const userLoggingInAction = () =>{
     return({
             type: types.USER_LOGGING_IN,
-            payload : {id: uid, userName:name, email:email, photo:photo}
+            payload : null
         }
     )
 }

@@ -1,19 +1,17 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import {Navbar} from "../components/Navbar";
-import {CreateQuestionPage} from "../pages/CreateQuestionPage";
 import {LoginPage} from "../pages/LoginPage";
 import {QuestionListPage} from "../pages/QuestionListPage";
 import {QuestionPage} from "../pages/QuestionPage";
+import {PublicNavbar} from "../components/PublicNavbar";
 
 
 export const PublicLayout = () => {
     return(
         <BrowserRouter>
-            <Navbar userId={""}/>
+            <PublicNavbar />
             <Routes>
                 <Route path="/" element={<LoginPage />} />
-                <Route path="/preguntas" element={<QuestionListPage />} />
-                <Route path="/preguntas/:id" element={<QuestionPage />} />
+                <Route path="/preguntas" element={<QuestionListPage type={"all"}/>} />
             </Routes>
         </BrowserRouter>
     )

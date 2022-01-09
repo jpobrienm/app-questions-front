@@ -8,8 +8,6 @@ export const createUser = (user) => (dispatch) => {
 
     const option = options(user).createUser;
 
-    console.log("oliwi")
-
     axios.request(option).then(function(response){
         dispatch(userCreatedAction(response.data))
     }).catch(function(error){

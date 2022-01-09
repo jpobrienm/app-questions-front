@@ -6,7 +6,6 @@ export const userReducer = (state=initialState, {type, payload}) =>{
         case types.USER_LOGGING_IN:
             return({
                 ...state,
-                user: payload
             })
         case types.USER_LOGGED:
             return({
@@ -16,7 +15,7 @@ export const userReducer = (state=initialState, {type, payload}) =>{
         case types.USER_LOGOUT:
             return({
                 ...state,
-                user: payload
+                user: null
             })
         default:
             return state;
