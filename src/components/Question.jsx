@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 export const Question = ({question}) => {
+
     return(
         <div>
             <div>{question.id}</div>

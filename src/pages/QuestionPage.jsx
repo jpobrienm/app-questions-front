@@ -9,14 +9,16 @@ import { Answer } from "../components/Answer";
 
 export const QuestionPage = () =>{
 
+    const {questionId} = useParams();
+
     const dispatch = useDispatch();
     const {loading, question, error} = useSelector(state => state.question);
     const {loadingAnswers, answerList, errorAnswer} = useSelector(state => state.answerList)
     const userState = useSelector(state => state.user)
 
     useEffect(() =>{
-        dispatch(loadQuestionById(userState.id));
-        dispatch(loadAllAnswerByParentId(question.id));
+        dispatch(loadQuestionById(questionId))
+        dispatch(loadAllAnswerByParentId(questionId))
     }, [])
 
     return(

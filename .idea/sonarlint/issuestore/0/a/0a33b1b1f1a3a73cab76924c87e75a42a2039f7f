@@ -1,10 +1,0 @@
-
-Kjavascript:S1128")Remove this unused import of 'useParams'.(€³§8õˆÜìã/
-Yjavascript:S1481"8Remove the declaration of the unused 'loading' variable.(­ð—±üÿÿÿÿ
-Vjavascript:S1854"5Remove this useless assignment to variable "loading".(­ð—±üÿÿÿÿ
-Wjavascript:S1481"6Remove the declaration of the unused 'error' variable.(­ð—±üÿÿÿÿ
-Tjavascript:S1854"3Remove this useless assignment to variable "error".(­ð—±üÿÿÿÿ
-[javascript:S1481"?Remove the declaration of the unused 'loadingAnswers' variable.(ñÏ¶Š
-Xjavascript:S1854"<Remove this useless assignment to variable "loadingAnswers".(ñÏ¶Š
-Xjavascript:S1481"<Remove the declaration of the unused 'errorAnswer' variable.(ñÏ¶Š
-Ujavascript:S1854"9Remove this useless assignment to variable "errorAnswer".(ñÏ¶Š

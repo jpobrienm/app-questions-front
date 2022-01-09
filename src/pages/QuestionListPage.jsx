@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { loadAllQuestions, loadAllQuestionsByUserId} from "../middlewares/questionListPayload";
 import {useEffect, useState} from "react";
-import { useParams } from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import { Question } from "../components/Question";
+import {loadQuestionById} from "../middlewares/questionPayloads";
 
 export const QuestionListPage = (type) => {
 
@@ -19,7 +20,12 @@ export const QuestionListPage = (type) => {
     return (
         <div>
             {questionList && questionList.map((q) => {
-                return (<Question key={q.id} question={q}/>)
+                return (<div className="question-excerpt">
+                    <Question key={q.id} question={q}/>
+                    <Link to={`/preguntas/${q.id}`} className="button" >
+                        View Question
+                    </Link>
+                    </div>)
             })}
         </div>
     )

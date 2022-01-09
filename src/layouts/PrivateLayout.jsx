@@ -16,6 +16,7 @@ export const PrivateLayout = () => {
                 <Route path="/preguntas" element={<QuestionListPage type={"all"} />} />
                 {/* eslint-disable-next-line no-template-curly-in-string */}
                 <Route path="/mispreguntas" element={<QuestionListPage />}/>
+                <Route path="preguntas/:questionId" element={<QuestionPage />}/>
             </Routes>
         </BrowserRouter>
     )

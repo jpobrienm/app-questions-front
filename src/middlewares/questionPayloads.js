@@ -6,7 +6,8 @@ export const loadQuestionById = (id) => (dispatch) => {
 
     dispatch(questionLoading());
 
-    const option = options(id).getById;
+    const option = options(id, {}).getById;
+    console.log(option)
 
     axios.request(option).then(function(response){
         dispatch(questionLoadSuccess(response.data))

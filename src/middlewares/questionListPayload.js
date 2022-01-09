@@ -17,8 +17,6 @@ export const loadAllQuestions = () => (dispatch) => {
 
 export const loadAllQuestionsByUserId = (userId) => (dispatch) =>{
 
-    dispatch(questionListLoading());
-
     const option = options(userId).getAllbyUserId;
 
     axios.request(option).then(function(response){
