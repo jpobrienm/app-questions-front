@@ -14,3 +14,10 @@ export const questionDeletedAction = () =>{
         payload:null,
     })
 }
+
+export const answerCreateAction = (answer) => {
+    return({
+        type: types.ANSWER_CREATED,
+        payload:answer,
+    })
+}

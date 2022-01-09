@@ -13,6 +13,12 @@ export const dataTransferReducer = (state=initialState, {type, payload}) =>{
                 ...state,
                 questionData: null
             })
+        case(types.ANSWER_CREATED):
+            return({
+                ...state,
+                answerData: payload
+            }
+        )
         default:
             return state;
     }

@@ -1,5 +1,5 @@
 import {dataTransferOptions as options} from "../services/dataTransferOptions";
-import {userCreatedAction, questionDeletedAction} from "../actions/dataTransferActions";
+import {userCreatedAction, questionDeletedAction, answerCreateAction} from "../actions/dataTransferActions";
 import axios from "axios";
 import {questionLoadError, questionLoadSuccess} from "../actions/questionActions";
 
@@ -21,6 +21,18 @@ export const deleteQuestion = (questionId) => (dispatch) =>{
 
     axios.request(option).then(function(response){
         dispatch(questionDeletedAction())
+    }).catch(function(error){
+        dispatch(error.message)
+    });
+
+}
+
+export const createAnswer = (answer) => (dispatch) =>{
+
+    const option = options(answer, "").createAnswer;
+
+    axios.request(option).then(function(response){
+        dispatch(answerCreateAction(response.data))
     }).catch(function(error){
         dispatch(error.message)
     });

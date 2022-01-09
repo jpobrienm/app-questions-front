@@ -30,7 +30,6 @@ export const Question = ({question}) => {
                     <div>{question.type}</div>
                     <div>{question.score}</div>
                     <div>{question.dateOf}</div>
-                    <button className="button">Responder</button>
                     <button className="button" onClick={handleDelete(question.id)}>Eliminar</button>
                 </div>:
                 <div>
@@ -41,7 +40,6 @@ export const Question = ({question}) => {
                     <div>{question.type}</div>
                     <div>{question.score}</div>
                     <div>{question.dateOf}</div>
-                    <button className="button">Responder</button>
                 </div>}
         </>
     )

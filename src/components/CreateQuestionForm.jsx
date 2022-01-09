@@ -9,7 +9,7 @@ export const CreateQuestion = () =>{
 
     const userData = useSelector(state => state.user.user)
 
-    const {register, handleSubmit} = useForm()
+    const {register, handleSubmit} = useForm();
     const dispatch = useDispatch();
     const navigate = useNavigate()
 
