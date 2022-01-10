@@ -7,6 +7,8 @@ import {app} from "./webService/firebase";
 import {PrivateLayout} from "./layouts/PrivateLayout";
 import {PublicLayout} from "./layouts/PublicLayout";
 import mapStateToProps from "react-redux/lib/connect/mapStateToProps";
+import {createUser} from "./middlewares/dataTransferPayload";
+import {userCreatedAction} from "./actions/dataTransferActions";
 
 
 function App() {
@@ -18,10 +20,10 @@ function App() {
     if(state.user === null){
         app.auth().onAuthStateChanged((user)=>{
                 if(user){
-                    dispatch(userLoggedAction(user.uid ,
-                        user.displayName,
-                        user.email,
-                        user.photoURL))
+                    dispatch(userLoggedAction({uid: user.uid ,
+                        name: user.displayName,
+                        email: user.email,
+                        photo: user.photoURL}))
                 }
             }
         )

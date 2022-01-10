@@ -19,7 +19,7 @@ export const LoginPage = () => {
         msg: "El usuario no fue encontrado, ¿desea crearlo?",
         titulo: "Usuario no encontrado",
     };
-    const [idEliminar, setIdEliminar] = useState("");
+
     const [open, setOpen] = useState(false);
 
     const handleClose = () => {
@@ -33,15 +33,11 @@ export const LoginPage = () => {
                     name:user.user.displayName,
                     email:user.user.email,
                     photo:user.user.photoURL}));
-                dispatch(userCreatedAction({id: user.user.uid,
-                    userName: user.user.displayName,
-                    email:user.user.email}))
                 dispatch(createUser({id: user.user.uid,
                     userName: user.user.displayName,
                     email:user.user.email}))
             })
         setOpen(false);
-
     }
 
     const logWithEmailHandler = (e) =>{
@@ -52,12 +48,10 @@ export const LoginPage = () => {
                     name:user.user.displayName,
                     email:user.user.email,
                     photo:user.user.photoURL}));
-                dispatch(userCreatedAction({id: user.user.uid,
-                    userName: user.user.displayName,
-                    email:user.user.email}))
                 dispatch(createUser({id: user.user.uid,
                     userName: user.user.displayName,
                     email:user.user.email}))
+
             })
             .catch( error => {
             setOpen(true)
@@ -80,13 +74,13 @@ export const LoginPage = () => {
                     email:user.user.email,
                     photo:user.user.photoURL}));
                 navigate("/preguntas");
-                dispatch(userCreatedAction({id: user.user.uid,
-                    userName: user.user.displayName,
-                    email:user.user.email}))
                 dispatch(createUser({id: user.user.uid,
                     userName: user.user.displayName,
                     email:user.user.email}))
-            }).catch()
+                dispatch(userCreatedAction({id: user.user.uid,
+                    userName: user.user.displayName,
+                    email:user.user.email}))
+            })
     }
 
     return(
