@@ -8,7 +8,7 @@ export const userLoggingInAction = () =>{
     )
 }
 
-export const userLoggedAction = (uid, name, email, photo) => {
+export const userLoggedAction = ({uid, name, email, photo}) => {
     return({
             type: types.USER_LOGGED,
             payload : {id: uid, userName:name, email:email, photo:photo}

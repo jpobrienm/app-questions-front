@@ -27,15 +27,15 @@ export const QuestionPage = () =>{
     useEffect(() =>{
         dispatch(loadQuestionById(questionId))
         dispatch(loadAllAnswerByParentId(questionId))
-        setAnswering(!answering)
+        setAnswering(false)
     }, [answerData])
 
     return(
         <div>
             {question && <div className="question-excerpt">
                 <Question question={question}/>
-                <button className="button" onClick={toggleAnswer}>Responder</button>
-                {answering ? <CreateAnswerForm /> : <></>}
+                {userState.user && <button className="button" onClick={toggleAnswer}>Responder</button>}
+                {userState.user && answering ? <CreateAnswerForm /> : <></>}
             </div>}
             {answerList && answerList.map((a) => <div className="question-excerpt">
                 <Answer key={a.id} answer={a}/>

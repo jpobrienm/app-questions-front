@@ -8,7 +8,6 @@ import {loadQuestionById} from "../middlewares/questionPayloads";
 export const QuestionListPage = () => {
 
     const dispatch = useDispatch();
-    const user = useSelector(state => state.user.user)
     const {loading, questionList, error} = useSelector(state => state.questionList);
 
     useEffect(() =>{

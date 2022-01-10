@@ -24,9 +24,9 @@ export const Question = ({question}) => {
 
     return(
         <>
-            {state.id === question.userId ? <div>
-                    <div>{question.id}</div>
-                    <div>{question.userId}</div>
+            {state && state.id === question.userId ? <div>
+                    {/*<div>{question.id}</div>
+                    <div>{question.userId}</div>*/}
                     <div>{question.questionBody}</div>
                     <div>{question.category}</div>
                     <div>{question.type}</div>

@@ -3,14 +3,68 @@ import {useDispatch, useSelector} from "react-redux";
 import {userCreatedAction} from "../actions/dataTransferActions";
 import { useNavigate } from "react-router-dom"
 import { app, google } from "../webService/firebase";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {createUser} from "../middlewares/dataTransferPayload";
+import {Modal} from "../components/Modal";
 
 export const LoginPage = () => {
 
     const state = useSelector(state => state.user.user);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    const [loginData, setLoginData] = useState({email:null, password:null, error:null})
+
+    const msgModal = {
+        msg: "El usuario no fue encontrado, ¿desea crearlo?",
+        titulo: "Usuario no encontrado",
+    };
+    const [idEliminar, setIdEliminar] = useState("");
+    const [open, setOpen] = useState(false);
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const handleConfirm = () => {
+        app.auth().createUserWithEmailAndPassword(loginData.email, loginData.password)
+            .then(user => {
+                dispatch(userLoggedAction({uid:user.user.uid,
+                    name:user.user.displayName,
+                    email:user.user.email,
+                    photo:user.user.photoURL}));
+                dispatch(userCreatedAction({id: user.user.uid,
+                    userName: user.user.displayName,
+                    email:user.user.email}))
+                dispatch(createUser({id: user.user.uid,
+                    userName: user.user.displayName,
+                    email:user.user.email}))
+            })
+        setOpen(false);
+
+    }
+
+    const logWithEmailHandler = (e) =>{
+        e.preventDefault();
+        app.auth().signInWithEmailAndPassword(loginData.email, loginData.password)
+            .then(user =>{
+                dispatch(userLoggedAction({uid:user.user.uid,
+                    name:user.user.displayName,
+                    email:user.user.email,
+                    photo:user.user.photoURL}));
+                dispatch(userCreatedAction({id: user.user.uid,
+                    userName: user.user.displayName,
+                    email:user.user.email}))
+                dispatch(createUser({id: user.user.uid,
+                    userName: user.user.displayName,
+                    email:user.user.email}))
+            })
+            .catch( error => {
+            setOpen(true)
+            setLoginData({...loginData, error: error.message})
+            console.clear()
+        })
+    }
 
     const logOutHandler = () =>{
         app.auth().signOut();
@@ -21,10 +75,10 @@ export const LoginPage = () => {
     const logInHandler = () =>{
         app.auth().signInWithPopup(google)
             .then( user => {
-                dispatch(userLoggedAction(user.user.uid,
-                    user.user.displayName,
-                    user.user.email,
-                    user.user.photoURL));
+                dispatch(userLoggedAction({uid:user.user.uid,
+                    name:user.user.displayName,
+                    email:user.user.email,
+                    photo:user.user.photoURL}));
                 navigate("/preguntas");
                 dispatch(userCreatedAction({id: user.user.uid,
                     userName: user.user.displayName,
@@ -36,15 +90,28 @@ export const LoginPage = () => {
     }
 
     return(
-        <div>
-            <h1>Home</h1>
+        <div className="login-form">
+            <h1>Bienvenid@ a Sofka Overflow</h1>
             {state?
                 <button className="button" onClick={logOutHandler}>
-                    Log-out
-                </button>:
-                <button className="button" onClick={logInHandler}>
-                    google
-                </button>}
+                    log-out
+                </button> :
+                <>
+                    <form onSubmit={logWithEmailHandler}>
+                        <input required placeholder="Email" type="email" onChange={(e) => setLoginData({ ...loginData, email:e.target.value})}/>
+                        <input required placeholder="Contraseña" type="password" onChange={(e) =>setLoginData({ ...loginData, password:e.target.value})}/>
+                        <p className="text-danger">{loginData.error}</p>
+                        <button className="button">Inicia sesion con tu correo</button>
+                        <div> o </div>
+                    </form>
+                    <button className="button" type="submit" onClick={logInHandler}>Inicia sesion con Google</button>
+                    <Modal
+                        msgModal={msgModal}
+                        open={open}
+                        handleClose={handleClose}
+                        handleConfirm={handleConfirm}
+                    />
+                </>}
         </div>
     );
 }

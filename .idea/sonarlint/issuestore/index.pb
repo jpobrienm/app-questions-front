@@ -8,8 +8,6 @@ P
  src/actions/answerListActions.js,4\0\4089dbb13ba481faeff9c0f4eb1520683032b2a4
 <
 package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a
-]
--src/initialStates/questionListInitialState.js,8\3\83a2d3cd82adc3295e44830adfc2683ee6211c98
 [
 +src/initialStates/answerListInitialState.js,6\8\68f894aeff7c80a7c0951db324a227cab91454ae
 <
@@ -24,20 +22,8 @@ T
 $src/middlewares/answerListPayload.js,4\7\4771703b03acf8e3b601b64eae2ef817bbc2d6e8
 Q
 !src/services/answerListOptions.js,1\4\1491cb6cb50e44104b492a32ebeee3ce411d3d1a
-O
-src/components/PublicNavbar.jsx,5\3\537d7259733aba031c285181bbd5759dc1b9c2ee
 R
 "src/actionTypes/userActionTypes.js,3\9\396a28b77ca2b269c27df451ed8b3166d58db144
-;
-src/App.jsx,c\0\c0e9e59a467e1546695bfa22746b302540797a4e
-=
-src/index.css,c\5\c5d38a62d1faae90a2acaa34b79a7ef365c917e4
-J
-src/actions/userActions.js,f\d\fd9c09f25ffe5ed03f9743e432813d6de0ad3d1f
-P
- src/pages/CreateQuestionPage.jsx,9\4\94ec3c6d2f35aca162ea6b8ed7ec17d620ba719d
-G
-src/pages/LoginPage.jsx,9\4\94f4b2353518bffdaf62d0c6d40e8ca1c3634171
 O
 src/reducers/questionReducer.js,f\1\f15ce8017f1877f1704a50808e5ae7b4056d21fb
 Y

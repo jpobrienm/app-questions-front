@@ -1,5 +1,5 @@
 export const questionListInitialState = {
-    loading: null,
+    loading: true,
     questionList: [],
     error: null
 }
