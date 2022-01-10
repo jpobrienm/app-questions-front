@@ -1,11 +1,11 @@
-import { useDispatch, useSelector } from "react-redux";
-import { loadAllQuestions, loadAllQuestionsByUserId} from "../middlewares/questionListPayload";
-import {useEffect, useState} from "react";
-import {Link, useParams} from "react-router-dom";
-import { Question } from "../components/Question";
-import {loadQuestionById} from "../middlewares/questionPayloads";
+import {useDispatch, useSelector} from "react-redux";
+import {useEffect} from "react";
+import {loadAllQuestions, loadAllQuestionsByUserId} from "../middlewares/questionListPayload";
+import {Question} from "../components/Question";
+import {Link} from "react-router-dom";
 
-export const QuestionListPage = () => {
+
+export const UserQuestionListPage = () =>{
 
     const dispatch = useDispatch();
     const user = useSelector(state => state.user.user)
@@ -13,11 +13,11 @@ export const QuestionListPage = () => {
 
     useEffect(() =>{
         if(loading){
-            dispatch(loadAllQuestions())
+            dispatch(loadAllQuestionsByUserId(user.id))
         }
     }, [loading])
 
-    return (
+    return(
         <div>
             {questionList && questionList.map((q) => {
                 return (<div className="question-excerpt">
@@ -25,7 +25,7 @@ export const QuestionListPage = () => {
                     <Link to={`/preguntas/${q.id}`} className="button" >
                         View Question
                     </Link>
-                    </div>)
+                </div>)
             })}
         </div>
     )

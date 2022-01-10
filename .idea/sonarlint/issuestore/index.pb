@@ -26,8 +26,6 @@ Q
 !src/services/answerListOptions.js,1\4\1491cb6cb50e44104b492a32ebeee3ce411d3d1a
 O
 src/components/PublicNavbar.jsx,5\3\537d7259733aba031c285181bbd5759dc1b9c2ee
-L
-src/layouts/PublicLayout.jsx,4\c\4cb9604a607eef45d1e1946b7cb775dd6b2aca1d
 R
 "src/actionTypes/userActionTypes.js,3\9\396a28b77ca2b269c27df451ed8b3166d58db144
 ;

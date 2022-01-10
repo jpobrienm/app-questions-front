@@ -11,7 +11,7 @@ export const PublicLayout = () => {
             <PublicNavbar />
             <Routes>
                 <Route path="/" element={<LoginPage />} />
-                <Route path="/preguntas" element={<QuestionListPage type={"all"}/>} />
+                <Route path="/preguntas" element={<QuestionListPage />} />
             </Routes>
         </BrowserRouter>
     )

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {questionDeletedAction} from "../actions/dataTransferActions";
 import {deleteQuestion} from "../middlewares/dataTransferPayload";
@@ -11,10 +11,12 @@ export const Question = ({question}) => {
     const state = useSelector(state => state.user.user)
     const loading = useSelector(state => state.question.loading)
     const dispatch = useDispatch();
+    const navigate = useNavigate()
 
     const handleDelete = (id) => () =>{
         dispatch(deleteQuestion(id))
         dispatch(questionListLoading())
+        navigate("/mispreguntas")
     }
 
     useEffect(() => {
