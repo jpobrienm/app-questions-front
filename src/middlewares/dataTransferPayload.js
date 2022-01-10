@@ -1,5 +1,10 @@
 import {dataTransferOptions as options} from "../services/dataTransferOptions";
-import {userCreatedAction, questionDeletedAction, answerCreateAction} from "../actions/dataTransferActions";
+import {
+    userCreatedAction,
+    questionDeletedAction,
+    answerCreateAction,
+    userUpdatedAction, userLoadedAction
+} from "../actions/dataTransferActions";
 import axios from "axios";
 import {questionLoadError, questionLoadSuccess} from "../actions/questionActions";
 
@@ -37,4 +42,27 @@ export const createAnswer = (answer) => (dispatch) =>{
         dispatch(error.message)
     });
 
+}
+
+export const updateUser = (user) => (dispatch) =>{
+
+    const option = options(user, "").updateUser;
+
+    axios.request(option).then(function(response){
+        dispatch(userUpdatedAction(response.data))
+    }).catch(function(error){
+        dispatch(error.message)
+    });
+
+}
+
+export const readUser = (id) => (dispatch) =>{
+
+    const option = options({}, id).readUser;
+
+    axios.request(option).then(function(response){
+        dispatch(userLoadedAction(response.data))
+    }).catch(function(error){
+        dispatch(error.message)
+    });
 }

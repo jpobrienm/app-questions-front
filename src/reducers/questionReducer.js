@@ -7,7 +7,7 @@ export const questionReducer = (state=initialState, {type, payload}) =>{
             return(
                 {
                     ...state,
-                    loading:true,
+                    loading:payload,
                 }
             );
         case types.LOAD_QUESTION_SUCCESS:

@@ -23,3 +23,9 @@ export const answerListLoadError = (error) => {
         }
     );
 }
+
+export const answerListDeletingAnswer = () =>{
+    return({
+        type: types.DELETING_ANSWER
+    })
+}

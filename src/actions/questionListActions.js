@@ -4,6 +4,7 @@ import { questionListActionTypes as types } from "../actionTypes/questionListAct
 export const questionListLoading = () =>{
     return({
             type: types.LOADING_QUESTION_LIST,
+            payload: true
         }
     );
 }

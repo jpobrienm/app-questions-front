@@ -73,13 +73,19 @@ textarea {
 }
 
 .question-excerpt {
-  margin-top: 15%;
-  margin-left: 15%;
-  margin-right: 15%;
-  padding: 3%;
+  margin-top: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  text-align: center;
   border: 5px solid #111111;
   box-shadow: -2px 2px 2px 2px #4a4a50;
   border-radius: 15px;
+}
+
+.question-body{
+  margin: 10%
 }
 
 .question-list {

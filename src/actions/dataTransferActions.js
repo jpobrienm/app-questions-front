@@ -21,3 +21,17 @@ export const answerCreateAction = (answer) => {
         payload:answer,
     })
 }
+
+export const userUpdatedAction = (user) =>{
+    return({
+        type: types.USER_UPDATED,
+        payload: user
+    })
+}
+
+export const userLoadedAction = (user) =>{
+    return({
+        type: types.USER_READ,
+        payload: user
+    })
+}

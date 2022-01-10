@@ -7,6 +7,7 @@ import {QuestionListPage} from "../pages/QuestionListPage";
 import {QuestionPage} from "../pages/QuestionPage";
 import {useDispatch} from "react-redux";
 import {questionListLoading} from "../actions/questionListActions";
+import {ProfilePage} from "../pages/ProfilePage";
 
 
 export const PrivateLayout = () => {
@@ -21,6 +22,7 @@ export const PrivateLayout = () => {
                 {/* eslint-disable-next-line no-template-curly-in-string */}
                 <Route path="/mispreguntas" element={<UserQuestionListPage/>}/>
                 <Route path="preguntas/:questionId" element={<QuestionPage/>}/>
+                <Route path="/usuario" element={<ProfilePage/>}/>
             </Routes>
         </BrowserRouter>
     )

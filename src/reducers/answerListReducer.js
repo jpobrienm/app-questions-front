@@ -26,6 +26,13 @@ export const answerListReducer = (state=initialState, {type, payload}) =>{
                     error:payload
                 }
             )
+        case types.DELETING_ANSWER:
+            return(
+                {
+                    ...state,
+                    loading: true
+                }
+            )
         default:
             return state;
     }

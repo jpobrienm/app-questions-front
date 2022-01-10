@@ -19,6 +19,16 @@ export const dataTransferReducer = (state=initialState, {type, payload}) =>{
                 answerData: payload
             }
         )
+        case(types.USER_UPDATED):
+            return({
+                ...state,
+                userData: payload
+            })
+        case(types.USER_READ):
+            return({
+                ...state,
+                userData: payload
+            })
         default:
             return state;
     }

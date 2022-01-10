@@ -20,6 +20,10 @@ const privateNavbarOptions =[
             {
                 titulo:"Crear Pregunta",
                 url:"/preguntas/crear"
+            },
+            {
+                titulo:"Perfil",
+                url:"/usuario"
             }
         ]
 
