@@ -5,7 +5,7 @@ export const answerListOptions = (id="", data={}) => {
         {
             createAnswer:{
                 method:'POST',
-                url:herokuPath+ `respuestas/crear`,
+                url:herokuPath + `respuestas/crear`,
                 headers: {'Content-Type': 'application/json'},
                 data: {userId: data.userId, parentId: data.parentId, answerBody: data.answerBody}
             },
@@ -16,7 +16,7 @@ export const answerListOptions = (id="", data={}) => {
             },
             deleteById:{
                 method: 'DELETE',
-                url: herokuPath+`respuesta/eliminar/${id}`,
+                url: herokuPath + `respuesta/eliminar/${id}`,
                 headers: {'Content-Type': 'application/json'}
             },
         }

@@ -16,11 +16,13 @@ export const questionListReducer = (state=initialstate, {type, payload}) =>{
         case questionListActionTypes.LOAD_QUESTION_LIST_SUCCESS:
             return({
                 ...state,
+                loading: false,
                 questionList: payload
             })
         case questionListActionTypes.LOAD_QUESTION_LIST_ERROR:
             return({
                 ...state,
+                loading: false,
                 error: payload
             })
         default:

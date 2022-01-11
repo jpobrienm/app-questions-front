@@ -5,6 +5,8 @@ import {userQuestionsLoadSuccess} from "../newActions/userQuestionsActions";
 
 export const loadAllQuestions = () => (dispatch) => {
 
+    dispatch(questionListLoading())
+
     const option = questionListOptions().getAll;
 
     axios.request(option).then(function(response){
@@ -14,7 +16,9 @@ export const loadAllQuestions = () => (dispatch) => {
     });
 }
 
-export const loadAllQuestionsByUserId = (userId) => (dispatch) =>{
+export const loadAllQuestionsByUserId = (userId) => (dispatch) => {
+
+    dispatch(questionListLoading())
 
     const option = questionListOptions(userId).getAllbyUserId;
 

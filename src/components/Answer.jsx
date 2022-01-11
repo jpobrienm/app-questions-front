@@ -54,7 +54,7 @@ export const Answer = ({answer}) => {
             <div>{answer.votes}</div>
             {answerToAnswerList && answerToAnswerList.map( a =>
                 <AnswersToAnswer answerToAnswer={a} /> )}
-            {user && <button className="button" onClick={toggleAnswer}>Responder</button>}
+            {(user && false) && <button className="button" onClick={toggleAnswer}>Responder</button>}
             {user && answering ? <CreateAnswerToAnswerForm id={answer.id} /> : <></>}
             {(user && answer.userId === user.id) &&
                 <>

@@ -15,11 +15,13 @@ export const questionReducer = (state=initialState, {type, payload}) =>{
         case questionActionTypes.LOAD_QUESTION_SUCCESS:
             return({
                 ...state,
+                loading: false,
                 question: payload
             })
         case questionActionTypes.LOAD_QUESTION_ERROR:
             return({
                 ...state,
+                loading: true,
                 error:payload
             })
         default:

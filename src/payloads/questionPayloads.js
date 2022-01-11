@@ -5,6 +5,8 @@ import axios from "axios";
 
 export const loadQuestionById = (id) => (dispatch) => {
 
+    dispatch(questionLoading())
+
     const option = questionOptions(id, {}).getById;
 
     axios.request(option).then(function(response){
@@ -15,6 +17,8 @@ export const loadQuestionById = (id) => (dispatch) => {
 }
 
 export const createQuestion = (data) => (dispatch) =>{
+
+    dispatch(questionLoading())
 
     const option = questionOptions("", data).create;
 
@@ -27,6 +31,8 @@ export const createQuestion = (data) => (dispatch) =>{
 }
 
 export const deleteQuestion = (questionId) => (dispatch) =>{
+
+    dispatch(questionLoading())
 
     const option = questionOptions(questionId, {}).delete;
 

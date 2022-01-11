@@ -8,6 +8,7 @@ import {deleteQuestion, loadQuestionById} from "../payloads/questionPayloads";
 import {questionListLoading} from "../newActions/questionListActions";
 import {loadUserQuestions} from "../payloads/userQuestionsPayloads";
 import {questionLoading} from "../newActions/questionActions";
+import {loadAllAnswerByParentId} from "../payloads/answerListPayloads";
 
 export const Question = ({question}) => {
 
@@ -31,7 +32,9 @@ export const Question = ({question}) => {
         setOpen(false);
     }
 
-    const handleDelete = () =>{
+    const handleDelete = (id) => () =>{
+        dispatch(deleteQuestion(id))
+        dispatch(loadQuestionById(id))
         setOpen(true)
     }
 
@@ -50,7 +53,7 @@ export const Question = ({question}) => {
                     <div>{question.type}</div>
                     <div>{question.score}</div>
                     <div>{question.dateOf}</div>
-                    <button className="button" onClick={handleDelete}>Eliminar</button>
+                    <button className="button" onClick={handleDelete(question.id)}>Eliminar</button>
                     <Modal
                         msgModal={msgModal}
                         open={open}

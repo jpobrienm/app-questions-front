@@ -6,8 +6,6 @@ import { useParams } from "react-router-dom";
 import { Question } from "../components/Question";
 import { Answer } from "../components/Answer";
 import {CreateAnswerForm} from "../components/CreateAnswerForm";
-import {pageLoadedAction} from "../newActions/pageActions";
-import {questionLoading} from "../newActions/questionActions";
 
 
 export const QuestionPage = () =>{
@@ -42,7 +40,7 @@ export const QuestionPage = () =>{
                 {user && <button className="button" onClick={toggleAnswer}>Responder</button>}
                 {user && answering ? <CreateAnswerForm /> : <></>}
                 {answerList && answerList.map((a) =>
-                    <div className="question-excerpt">
+                    <div>
                         <Answer key={a.id} answer={a}/>
                     </div>)}
             </div>}

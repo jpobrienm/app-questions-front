@@ -5,7 +5,7 @@ export const userQuestionsOptions = (userId="") => {
         {
             getAllbyUserId:{
                 method: 'GET',
-                url: herokuPath+`preguntas/usuario/${userId}`,
+                url: herokuPath + `preguntas/usuario/${userId}`,
                 headers: {'Content-Type': 'application/json'}
             }
         }

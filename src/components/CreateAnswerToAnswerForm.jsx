@@ -1,6 +1,6 @@
 import {useForm} from "react-hook-form";
 import {useDispatch, useSelector} from "react-redux";
-import {createAnswer} from "../middlewares/dataTransferPayload";
+import {createAnswer} from "../payloads/answerListPayloads";
 
 
 export const CreateAnswerToAnswerForm = ({id}) =>{
