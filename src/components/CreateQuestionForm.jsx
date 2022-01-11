@@ -1,5 +1,8 @@
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import { useState} from "react";
+import TextEditor from "./TextEditor";
 import {createQuestion} from "../payloads/questionPayloads";
-import { useState, useEffect } from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {useForm} from "react-hook-form";
 import {useNavigate} from "react-router-dom";
@@ -13,8 +16,11 @@ export const CreateQuestion = () =>{
     const dispatch = useDispatch();
     const navigate = useNavigate()
 
+    const [ body, setBody ] = useState("");
+
     const onSubmit = (data) => {
         data.userId = user.id;
+        data.questionBody = body;
         dispatch(createQuestion(data));
         dispatch(loadAllQuestionsByUserId(user.id))
         navigate("/mispreguntas")
@@ -26,7 +32,7 @@ export const CreateQuestion = () =>{
         <div className="login-form">
             <form onSubmit={handleSubmit(onSubmit)} >
                 <label>Añadir nueva pregunta</label>
-                <input {...register("questionBody")} required name="questionBody" type="text" placeholder='Ingresa una pregunta acá' />
+                <TextEditor body={body} setBody={setBody}/>
                 <label className=" font-medium">Type</label>
                 <select {...register("type")} required className="" name="type" defaultValue="Type" >
                     <option disabled type="String" value="" >Type</option>

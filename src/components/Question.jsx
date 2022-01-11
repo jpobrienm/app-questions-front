@@ -1,3 +1,5 @@
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import {Link, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
@@ -32,11 +34,17 @@ export const Question = ({question}) => {
         setOpen(true)
     }
 
+    const modules = {
+        toolbar: false
+    };
+
     return(
         <div className="question">
             {(user && user.id === question.userId) &&
                 <div>
-                    <div>{question.questionBody}</div>
+                    <ReactQuill value={question.questionBody}
+                                modules={modules}
+                                readOnly='true'/>
                     <div>{question.category}</div>
                     <div>{question.type}</div>
                     <div>{question.score}</div>

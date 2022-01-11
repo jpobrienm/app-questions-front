@@ -10,6 +10,12 @@ p {
   font-size: 1.1rem;
 }
 
+.logo{
+  width: 40px;
+  display: flex;
+  left: 0px;
+}
+
 nav {
   display: flex;
   padding: 2rem 0;

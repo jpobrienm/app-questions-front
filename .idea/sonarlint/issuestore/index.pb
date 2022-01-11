@@ -26,12 +26,8 @@ S
 #src/reducers/dataTransferReducer.js,1\c\1c8b9770d9f04fd588fc10d9e61df148a8b1c23c
 Z
 *src/actionTypes/dataTransferActionTypes.js,f\0\f08a033509ee6782f34fd9b5e536cd6c9a88ca3a
-=
-src/index.css,c\5\c5d38a62d1faae90a2acaa34b79a7ef365c917e4
 O
 src/reducers/questionReducer.js,f\1\f15ce8017f1877f1704a50808e5ae7b4056d21fb
-H
-src/components/Modal.jsx,3\3\33548f976ee78835138d874b75f269f8b43bef4f
 [
 +src/components/CreateAnswerToAnswerForm.jsx,b\3\b3ee705a02753296e3f0fab07943a437fce98dd8
 R
@@ -98,10 +94,6 @@ Q
 !src/reducers/answerListReducer.js,d\d\dd699c0216a9056be1d67903cb7cae914219ded1
 Z
 *src/newReducers/answersOfanswersReducer.js,9\f\9f567a4b669a1475380172a1f7178e1c9f5ec149
-U
-%src/components/CreateQuestionForm.jsx,2\c\2cdf487ed2484bb533b18df6c048ec133cab35d3
-S
-#src/components/CreateAnswerForm.jsx,e\7\e7927b9d7e60b32063f93fc7ba720bae1237ab44
 Q
 !src/newActions/questionActions.js,5\d\5dd2f5781c67d34b2fef089d50c9d46bb9ae6904
 R
@@ -136,33 +128,9 @@ M
 src/newActions/userActions.js,c\9\c9fabe19ed5421682dc10bf0bf3629a0d19a907f
 N
 src/newReducers/userReducer.js,c\5\c5f2c58feb7de29a1fb291ca32a9fe481b900b10
-P
- src/components/PrivateNavbar.jsx,e\9\e97b51d035a54b1609c108da8696c878b14bbf6b
 M
 src/layouts/PrivateLayout.jsx,7\9\79f9d7c52373046ce81d07c90e921826f4397405
 T
 $src/middlewares/answerListPayload.js,4\7\4771703b03acf8e3b601b64eae2ef817bbc2d6e8
-O
-src/components/PublicNavbar.jsx,5\3\537d7259733aba031c285181bbd5759dc1b9c2ee
 L
 src/layouts/PublicLayout.jsx,4\c\4cb9604a607eef45d1e1946b7cb775dd6b2aca1d
-Y
-)src/newOptions/answersOfAnswersOptions.js,1\d\1d9fa6121a46b532423c63b2e4aeedaa05742833
-X
-(src/payloads/answersOfAnswersPayloads.js,1\5\15df415bb421507b2da47ef05a9c3badc0b56209
-Y
-)src/newActions/answersOfAnswersActions.js,e\4\e4103231cfe6f5b092a6f1195483fec435e19f1f
-R
-"src/payloads/answerListPayloads.js,a\8\a8783c66c53103e954a9ce39bfaf56396a62bfdd
-G
-src/pages/LoginPage.jsx,9\4\94f4b2353518bffdaf62d0c6d40e8ca1c3634171
-;
-src/App.jsx,c\0\c0e9e59a467e1546695bfa22746b302540797a4e
-K
-src/components/Question.jsx,8\3\83a413d49cda2d8f097089aebd23936d0b12a95b
-N
-src/pages/QuestionListPage.jsx,2\b\2bb4943eb4682c4708c5a4a23f4e508cade19de4
-J
-src/pages/QuestionPage.jsx,0\a\0a33b1b1f1a3a73cab76924c87e75a42a2039f7f
-I
-src/components/Answer.jsx,f\3\f32a76635f023806b18e7a2386bd361074a72d8d

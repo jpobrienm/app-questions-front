@@ -6,6 +6,7 @@ import {pageLoadedAction, pageLoadingAction} from "../newActions/pageActions";
 import {loadAllQuestions, loadAllQuestionsByUserId} from "../payloads/questionListPayloads";
 import {userLogoutAction} from "../newActions/userActions";
 import {app} from "../webService/firebase";
+import logo from "../logo.png"
 
 
 
@@ -48,6 +49,7 @@ export const PrivateNavbar = () =>{
     return(
         <nav>
             <section>
+                <img className="logo" src={logo} alt="logo"/>
                 <Link to={"/"} > Preguntas </Link>
                 <Link to={"/mispreguntas"} > Mis Preguntas </Link>
                 <Link to={"/preguntas/crear"} > Crear Preguntas </Link>
