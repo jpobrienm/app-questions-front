@@ -128,9 +128,5 @@ M
 src/newActions/userActions.js,c\9\c9fabe19ed5421682dc10bf0bf3629a0d19a907f
 N
 src/newReducers/userReducer.js,c\5\c5f2c58feb7de29a1fb291ca32a9fe481b900b10
-M
-src/layouts/PrivateLayout.jsx,7\9\79f9d7c52373046ce81d07c90e921826f4397405
 T
 $src/middlewares/answerListPayload.js,4\7\4771703b03acf8e3b601b64eae2ef817bbc2d6e8
-L
-src/layouts/PublicLayout.jsx,4\c\4cb9604a607eef45d1e1946b7cb775dd6b2aca1d

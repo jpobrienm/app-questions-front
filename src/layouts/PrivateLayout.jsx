@@ -8,6 +8,7 @@ import {QuestionPage} from "../pages/QuestionPage";
 import {useDispatch} from "react-redux";
 import {questionListLoading} from "../actions/questionListActions";
 import {ProfilePage} from "../pages/ProfilePage";
+import Footer from "../components/Footer";
 
 
 export const PrivateLayout = () => {
@@ -23,6 +24,8 @@ export const PrivateLayout = () => {
                 <Route path="preguntas/:questionId" element={<QuestionPage />}/>
                 <Route path="/usuario" element={<ProfilePage/>}/>
             </Routes>
+            <Footer/>
         </BrowserRouter>
+
     )
 }

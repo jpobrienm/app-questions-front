@@ -3,6 +3,7 @@ import {LoginPage} from "../pages/LoginPage";
 import {QuestionListPage} from "../pages/QuestionListPage";
 import {QuestionPage} from "../pages/QuestionPage";
 import {PublicNavbar} from "../components/PublicNavbar";
+import Footer from "../components/Footer";
 
 
 export const PublicLayout = () => {
@@ -13,6 +14,7 @@ export const PublicLayout = () => {
                 <Route path="/" element={<QuestionListPage />} />
                 <Route path="preguntas/:questionId" element={<QuestionPage/>}/>
             </Routes>
+            <Footer/>
         </BrowserRouter>
     )
 }
