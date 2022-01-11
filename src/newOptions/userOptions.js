@@ -1,15 +1,16 @@
+import {herokuPath} from "../webService/heroku";
 
 export const userOptions = (body={},id="") => {
     return({
         createUser: {
             method: 'POST',
-            url: `http://localhost:8080/usuarios/crear`,
+            url: herokuPath + `usuarios/crear`,
             headers: {'Content-Type': 'application/json'},
             data: {id: body.id, userName: body.userName, photo:body.photo, email: body.email}
         },
         updateUser:{
             method:"PUT",
-            url:`http://localhost:8080/usuario/actualizar`,
+            url:herokuPath + `usuario/actualizar`,
             headers: {'Content-Type': 'application/json'},
             data: {id: body.id,
                 userName: body.userName,
@@ -20,7 +21,7 @@ export const userOptions = (body={},id="") => {
         },
         readUser:{
             method:"GET",
-            url:`http://localhost:8080/usuario/id=${id}`,
+            url:herokuPath + `usuario/id=${id}`,
             headers: {'Content-Type': 'application/json'},
             data: {id: body.id,
                 userName: body.userName,

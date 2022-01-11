@@ -23,10 +23,6 @@ function App() {
     if(user === null){
         app.auth().onAuthStateChanged((user)=>{
                 if(user){
-                    dispatch(userLoggedAction({uid: user.uid ,
-                        name: user.displayName,
-                        email: user.email,
-                        photo: user.photoURL}))
                     dispatch(readUser(user.uid))
                     dispatch(loadUserQuestions(user.uid))
                     dispatch(loadAllQuestions())

@@ -6,10 +6,7 @@ import {createQuestion} from "../payloads/questionPayloads";
 import {useDispatch, useSelector} from "react-redux";
 import {useForm} from "react-hook-form";
 import {useNavigate} from "react-router-dom";
-import {loadAllQuestionsByUserId} from "../payloads/questionListPayloads";
-import {questionListLoading} from "../newActions/questionListActions";
-import {userQuestionsLoading} from "../newActions/userQuestionsActions";
-import {questionLoading} from "../newActions/questionActions";
+import {loadAllQuestions, loadAllQuestionsByUserId} from "../payloads/questionListPayloads";
 
 export const CreateQuestion = () =>{
 
@@ -26,7 +23,7 @@ export const CreateQuestion = () =>{
         data.questionBody = body;
         dispatch(createQuestion(data));
         dispatch(loadAllQuestionsByUserId(user.id))
-        dispatch(questionLoading())
+        dispatch(loadAllQuestions())
         navigate("/mispreguntas")
     }
 

@@ -5,8 +5,6 @@ import {questionDeletedAction} from "../actions/dataTransferActions";
 
 export const loadQuestionById = (id) => (dispatch) => {
 
-    dispatch(questionLoading());
-
     const option = options(id, {}).getById;
 
     axios.request(option).then(function(response){

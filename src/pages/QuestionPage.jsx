@@ -31,10 +31,9 @@ export const QuestionPage = () =>{
     }
 
     useEffect(() =>{
-        dispatch(questionLoading())
         dispatch(loadQuestionById(questionId))
         setAnswering(false)
-    }, [])
+    }, [answerList])
 
     return(
         <div>

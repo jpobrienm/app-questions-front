@@ -1,0 +1,1 @@
+export const herokuPath = `https://gentle-bastion-67326.herokuapp.com/`

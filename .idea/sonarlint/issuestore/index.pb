@@ -16,8 +16,6 @@ S
 #src/reducers/questionListReducer.js,b\6\b6af02f3ff6df5938bb2dcfa4c28ad40d8f5d668
 V
 &src/actionTypes/questionActionTypes.js,8\9\89fe0fd5e8ba89f992527378514d0b9677d0c276
-N
-src/actions/questionActions.js,b\e\be5ff35875e0b97bf33eb23c6d8eab523b14b3b4
 ]
 -src/initialStates/dataTransferInitialState.js,c\0\c0533010a7d4e940ee62e950695cdac67b9243c6
 ]
@@ -42,8 +40,6 @@ U
 %src/initialStates/userInitialState.js,d\5\d53b5beb18abfce3e41221814baf5d6bb37c234c
 O
 src/newReducers/pageReducers.js,5\c\5c744b4f17a5495a50a50017b7b245293dcb7d01
-S
-#src/newReducers/questionReducers.js,4\0\4080e3767b66a66e80fd6c0364fb99110c64cd8f
 T
 $src/newReducers/answerListReducer.js,c\e\cefaf02308628eb5a396ff25d18f670f8566ff2d
 K
@@ -73,19 +69,9 @@ M
 I
 src/pages/ProfilePage.jsx,8\5\85511965bf3ac1e30796ae79b60e5d9ac2a4bf32
 S
-#src/middlewares/questionPayloads.js,7\3\73fd1520436b45322d3915885eeac346d114abfb
-R
-"src/actions/dataTransferActions.js,6\2\62e01b24baf1fc9b8842da4502a9f2e7c016dab2
-S
 #src/services/dataTransferOptions.js,0\c\0c86b0cc1d9cb27cb958de9943aa57b59ce4e6cf
-P
- src/pages/CreateQuestionPage.jsx,9\4\94ec3c6d2f35aca162ea6b8ed7ec17d620ba719d
-S
-#src/newOptions/answerListOptions.js,a\d\ad89a1b92c4b7e1595c0a6440408a5d604b9f184
 Q
 !src/services/answerListOptions.js,1\4\1491cb6cb50e44104b492a32ebeee3ce411d3d1a
-V
-&src/middlewares/dataTransferPayload.js,a\9\a9815991bbbe85f443282379102ee1d349c66f27
 Q
 !src/reducers/answerListReducer.js,d\d\dd699c0216a9056be1d67903cb7cae914219ded1
 Z
@@ -94,31 +80,13 @@ Q
 !src/newActions/questionActions.js,5\d\5dd2f5781c67d34b2fef089d50c9d46bb9ae6904
 R
 "src/components/AnswersToAnswer.jsx,9\c\9c38ae711ea7f5fb376eebe8ed6631c4d461d284
-U
-%src/newActions/questionListActions.js,4\8\48def461c4a63959ce20691f428c0ef272f648c3
-U
-%src/newOptions/questionListOptions.js,f\f\ff2114b26d1bf64b5c7ce2e38d6af5a281c06c2e
-W
-'src/newReducers/questionListReducers.js,a\5\a5c7305902efc2588536bd157f43db10cc21e929
-S
-#src/newActions/answerListActions.js,b\0\b0caa21ff0957d3cd897612e0bc42f34051c2b93
-V
-&src/newOptions/userQuestionsOptions.js,3\f\3f39bdf9f0f778ad14fc88a23dff77bb278438f8
-W
-'src/newReducers/userQuestionsReducer.js,d\6\d635f44aaf6c624ad3e4f764945c6413e0ee3193
 R
 "src/pages/UserQuestionListPage.jsx,f\e\fe3662efe88b8bc0589cdf7b3ba055451f88a937
-M
-src/newOptions/userOptions.js,9\3\93732eeb2d723fb713ab71d1bf4d6e47e22e1b1e
 V
 &src/newActions/userQuestionsActions.js,3\b\3b349ab2bdd8f0adb20e0c8f3c5519d6d7489847
 L
 src/payloads/userPayloads.js,c\d\cdcc46b455ed8e76b24230d97b69d36a913d30ea
-N
-src/newReducers/rootReducer.js,c\7\c7ac1fb4b98e7e27be770cc12e32cc9687463689
 M
 src/newActions/userActions.js,c\9\c9fabe19ed5421682dc10bf0bf3629a0d19a907f
-N
-src/newReducers/userReducer.js,c\5\c5f2c58feb7de29a1fb291ca32a9fe481b900b10
 T
 $src/middlewares/answerListPayload.js,4\7\4771703b03acf8e3b601b64eae2ef817bbc2d6e8

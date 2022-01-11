@@ -1,10 +1,11 @@
+import {herokuPath} from "../webService/heroku";
 
 export const userQuestionsOptions = (userId="") => {
     return(
         {
             getAllbyUserId:{
                 method: 'GET',
-                url: `http://localhost:8080/preguntas/usuario/${userId}`,
+                url: herokuPath+`preguntas/usuario/${userId}`,
                 headers: {'Content-Type': 'application/json'}
             }
         }

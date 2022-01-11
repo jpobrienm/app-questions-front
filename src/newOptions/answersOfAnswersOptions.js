@@ -1,15 +1,16 @@
+import {herokuPath} from "../webService/heroku";
 
 export const answersOfAnswersOptions = (id="") => {
     return(
         {
             getAllByParentId:{
                 method: 'GET',
-                url: `http://localhost:8080/respuestas/parentId/${id}`,
+                url: herokuPath + `respuestas/parentId/${id}`,
                 headers: {'Content-Type': 'application/json'}
             },
             deleteById:{
                 method: 'DELETE',
-                url: `http://localhost:8080/respuesta/eliminar/${id}`,
+                url: herokuPath+`respuesta/eliminar/${id}`,
                 headers: {'Content-Type': 'application/json'}
             }
         }

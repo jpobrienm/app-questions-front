@@ -15,16 +15,12 @@ export const QuestionListPage = () => {
 
     const questionList = useSelector(state => state.questionList.questionList);
     const user = useSelector(state => state.user.user)
-    const answerList = useSelector(state => state.answerList.answerList)
 
     const navigate = useNavigate();
 
     const handleOpenQuestion = (id) => () => {
         dispatch(loadQuestionById(id))
         dispatch(loadAllAnswerByParentId(id))
-        answerList.map(answer => {
-            loadAllAnswerByParentId()
-        })
         navigate(`/preguntas/${id}`)
     }
 

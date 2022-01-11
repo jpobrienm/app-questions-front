@@ -1,10 +1,9 @@
 import {questionListOptions} from "../newOptions/questionListOptions";
 import {questionListLoading, questionListLoadSuccess, questionListLoadError} from "../newActions/questionListActions";
 import axios from "axios";
+import {userQuestionsLoadSuccess} from "../newActions/userQuestionsActions";
 
 export const loadAllQuestions = () => (dispatch) => {
-
-    dispatch(questionListLoading())
 
     const option = questionListOptions().getAll;
 
@@ -17,12 +16,10 @@ export const loadAllQuestions = () => (dispatch) => {
 
 export const loadAllQuestionsByUserId = (userId) => (dispatch) =>{
 
-    dispatch(questionListLoading())
-
     const option = questionListOptions(userId).getAllbyUserId;
 
     axios.request(option).then(function(response){
-        dispatch(questionListLoadSuccess(response.data));
+        dispatch(userQuestionsLoadSuccess(response.data));
     }).catch(function(error){
         dispatch(questionListLoadError(error.message))
     });

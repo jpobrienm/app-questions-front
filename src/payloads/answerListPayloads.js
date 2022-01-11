@@ -5,8 +5,6 @@ import axios from "axios";
 
 export const loadAllAnswerByParentId = (parentId) => (dispatch) => {
 
-    dispatch(answerListLoading());
-
     const option = answerListOptions(parentId).getAllByParentId;
 
     axios.request(option).then(function(response){
@@ -18,11 +16,21 @@ export const loadAllAnswerByParentId = (parentId) => (dispatch) => {
 
 export const deleteAnswerById = (parentId, answerId) => (dispatch) => {
 
-    dispatch(answerListLoading())
     const option = answerListOptions(answerId).deleteById
 
     axios.request(option).then(function(response){
         dispatch(loadAllAnswerByParentId(parentId))
+    }).catch(function(error){
+        dispatch(answerListLoadError(error.message))
+    });
+}
+
+export const createAnswer = (data) => (dispatch) =>{
+
+    const option = answerListOptions("", data).createAnswer;
+
+    axios.request(option).then(function(response){
+        dispatch(loadAllAnswerByParentId(data.parentId))
     }).catch(function(error){
         dispatch(answerListLoadError(error.message))
     });

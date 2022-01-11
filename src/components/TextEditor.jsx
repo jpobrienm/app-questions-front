@@ -7,7 +7,6 @@ const TextEditor = ({body, setBody}) => {
 
 
     const handlerBody = e => {
-        console.log(e);
         setBody(e);
     }
 
