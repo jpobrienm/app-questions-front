@@ -10,8 +10,7 @@ export const PublicLayout = () => {
         <BrowserRouter>
             <PublicNavbar />
             <Routes>
-                <Route path="/" element={<LoginPage />} />
-                <Route path="/preguntas" element={<QuestionListPage />} />
+                <Route path="/" element={<QuestionListPage />} />
                 <Route path="preguntas/:questionId" element={<QuestionPage/>}/>
             </Routes>
         </BrowserRouter>

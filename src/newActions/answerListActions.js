@@ -1,5 +1,5 @@
 
-export const answerListActionTypes = {
+export const answerListActions = {
     LOADING_ANSWER_LIST:"LOADING_ANSWER",
     LOAD_ANSWER_LIST_SUCCESS:"LOAD_ANSWER_SUCCESS",
     LOAD_ANSWER_LIST_ERROR:"LOAD_ANSWER_ERROR"
@@ -7,7 +7,7 @@ export const answerListActionTypes = {
 
 export const answerListLoading = () =>{
     return({
-            type: answerListActionTypes.LOADING_ANSWER_LIST,
+            type: answerListActions.LOADING_ANSWER_LIST,
             payload:true
         }
     );
@@ -15,7 +15,7 @@ export const answerListLoading = () =>{
 
 export const answerListLoadSuccess = (answerList) => {
     return ({
-            type: answerListActionTypes.LOAD_ANSWER_LIST_SUCCESS,
+            type: answerListActions.LOAD_ANSWER_LIST_SUCCESS,
             payload:answerList
         }
     );
@@ -23,7 +23,7 @@ export const answerListLoadSuccess = (answerList) => {
 
 export const answerListLoadError = (error) => {
     return ({
-            type: answerListActionTypes.LOAD_ANSWER_LIST_ERROR,
+            type: answerListActions.LOAD_ANSWER_LIST_ERROR,
             payload: error
         }
     );

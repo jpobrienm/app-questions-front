@@ -1,8 +1,10 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useState} from "react";
-import {deleteAnswerById, loadAllAnswerToAnswer} from "../middlewares/answerListPayload";
+
 import {CreateAnswerToAnswerForm} from "./CreateAnswerToAnswerForm";
 import {Modal} from "./Modal";
+import {deleteAnswerById} from "../payloads/answerListPayloads";
+import {loadAllAnswersToAnswer} from "../payloads/answersOfAnswersPayloads";
 
 export const AnswersToAnswer =  ({answerToAnswer}) =>{
 
@@ -32,7 +34,7 @@ export const AnswersToAnswer =  ({answerToAnswer}) =>{
     }
 
     const handleDelete = () =>{
-        dispatch(loadAllAnswerToAnswer(answerToAnswer.id))
+        dispatch(loadAllAnswersToAnswer(answerToAnswer.id))
         setOpen(true)
     }
 

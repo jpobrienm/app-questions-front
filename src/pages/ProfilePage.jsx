@@ -1,9 +1,8 @@
 import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {createUser, updateUser} from "../middlewares/dataTransferPayload";
+import {updateUser} from "../payloads/userPayloads";
 import {useNavigate} from "react-router-dom";
 import {useForm} from "react-hook-form";
-import {createQuestion} from "../middlewares/questionPayloads";
 import {questionListLoading} from "../actions/questionListActions";
 import {userCreatedAction} from "../actions/dataTransferActions";
 
@@ -11,7 +10,7 @@ export const ProfilePage = () => {
 
     const [updating, setUpdating] = useState(true);
     const {register, handleSubmit} = useForm();
-    const user = useSelector(state => state.dataTransfer.userData);
+    const user = useSelector(state => state.user.user);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 

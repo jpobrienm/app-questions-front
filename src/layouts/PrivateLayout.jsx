@@ -16,12 +16,11 @@ export const PrivateLayout = () => {
         <BrowserRouter>
             <PrivateNavbar />
             <Routes>
+                <Route path="/" element={<QuestionListPage />} />
                 <Route path="/preguntas/crear" element={<CreateQuestionPage />}/>
-                <Route path="/" element={<LoginPage />} />
-                <Route path="/preguntas" element={<QuestionListPage />} />
                 {/* eslint-disable-next-line no-template-curly-in-string */}
                 <Route path="/mispreguntas" element={<UserQuestionListPage/>}/>
-                <Route path="preguntas/:questionId" element={<QuestionPage/>}/>
+                <Route path="preguntas/:questionId" element={<QuestionPage />}/>
                 <Route path="/usuario" element={<ProfilePage/>}/>
             </Routes>
         </BrowserRouter>

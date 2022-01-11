@@ -2,7 +2,8 @@
 export const userActionTypes = {
     USER_LOGGING_IN:"USER_LOGGING_IN",
     USER_LOGGED:"USER_LOGGED",
-    USER_LOGOUT:"USER_LOGOUT"
+    USER_LOGOUT:"USER_LOGOUT",
+    USER_LOG_ERROR:"USER_LOG_ERROR"
 }
 
 export const userLoggingAction = () =>{
@@ -27,4 +28,11 @@ export const userLogoutAction =()=> {
             payload: null,
         }
     )
+}
+
+export const userLogError = (error) =>{
+    return({
+        type: userActionTypes.USER_LOG_ERROR,
+        payload:error
+    })
 }

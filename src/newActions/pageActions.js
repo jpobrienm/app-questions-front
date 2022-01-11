@@ -14,7 +14,7 @@ export const pageLoadingAction = () =>{
 
 export const pageLoadedAction = () => {
     return({
-        type: pageActionTypes.LOADING_PAGE,
+        type: pageActionTypes.LOAD_SUCCESS,
         payload: false,
     })
 }

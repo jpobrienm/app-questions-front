@@ -1,16 +1,16 @@
-import {userLoggingInAction, userLoggedAction, userLogoutAction} from "../actions/userActions";
+import {userLoggedAction, userLogoutAction} from "../newActions/userActions";
+import {createUser, readUser} from "../payloads/userPayloads";
 import {useDispatch, useSelector} from "react-redux";
-import {userCreatedAction} from "../actions/dataTransferActions";
 import { useNavigate } from "react-router-dom"
 import { app, google } from "../webService/firebase";
-import {useEffect, useState} from "react";
-import {createUser, readUser} from "../middlewares/dataTransferPayload";
+import {useState} from "react";
 import {Modal} from "../components/Modal";
+import {loadUserQuestions} from "../payloads/userQuestionsPayloads";
+import {loadAllQuestions} from "../payloads/questionListPayloads";
 
 export const LoginPage = () => {
 
-    const state = useSelector(state => state.user.user);
-    const userDto = useSelector(state => state.dataTransfer.userData)
+    const user = useSelector(state => state.user.user);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -29,15 +29,11 @@ export const LoginPage = () => {
 
     const handleConfirm = () => {
         app.auth().createUserWithEmailAndPassword(loginData.email, loginData.password)
-            .then(user => {
-                dispatch(userLoggedAction({uid:user.user.uid,
-                    name:user.user.displayName,
-                    email:user.user.email,
-                    photo:user.user.photoURL}));
-                dispatch(createUser({id: user.user.uid,
-                    userName: user.user.displayName,
-                    photo: user.user.photoURL,
-                    email:user.user.email}))
+            .then(response => {
+                dispatch(createUser({id: response.user.uid,
+                    userName: response.user.displayName,
+                    photo: response.user.photoURL,
+                    email:response.user.email}))
             })
         setOpen(false);
     }
@@ -45,19 +41,10 @@ export const LoginPage = () => {
     const logWithEmailHandler = (e) =>{
         e.preventDefault();
         app.auth().signInWithEmailAndPassword(loginData.email, loginData.password)
-            .then(user =>{
-                dispatch(userLoggedAction({uid:user.user.uid,
-                    name:user.user.displayName,
-                    email:user.user.email,
-                    photo:user.user.photoURL}));
-                dispatch(readUser(user.user.uid))
-
-
-            })
             .catch( error => {
             setOpen(true)
-            setLoginData({...loginData, error: error.message})
-            console.clear()
+            setLoginData({...loginData, error: error.message
+            })
         })
     }
 
@@ -69,26 +56,14 @@ export const LoginPage = () => {
 
     const logInHandler = () =>{
         app.auth().signInWithPopup(google)
-            .then( user => {
-                dispatch(userLoggedAction({uid:user.user.uid,
-                    name:user.user.displayName,
-                    email:user.user.email,
-                    photo:user.user.photoURL}));
-                navigate("/preguntas");
-                dispatch(readUser(user.user.uid))
-                if(userDto ===null){
-                    dispatch(createUser({id: user.user.uid,
-                        userName: user.user.displayName,
-                        photo:user.user.photoURL,
-                        email:user.user.email}))
-                }
-            })
+        dispatch(loadAllQuestions())
+        navigate("/mispreguntas");
     }
 
     return(
         <div className="login-form">
             <h1>Bienvenid@ a Sofka Overflow</h1>
-            {state?
+            {user?
                 <button className="button" onClick={logOutHandler}>
                     log-out
                 </button> :

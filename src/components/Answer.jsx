@@ -1,16 +1,15 @@
-import {Link, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {deleteAnswerById, loadAllAnswerByParentId, loadAllAnswerToAnswer} from "../middlewares/answerListPayload";
 import {Modal} from "./Modal";
 import {useEffect, useState} from "react";
-import {CreateAnswerForm} from "./CreateAnswerForm";
 import {CreateAnswerToAnswerForm} from "./CreateAnswerToAnswerForm";
+import {deleteAnswerById} from "../payloads/answerListPayloads";
+import {loadAllAnswersToAnswer} from "../payloads/answersOfAnswersPayloads";
 import {AnswersToAnswer} from "./AnswersToAnswer";
 
 export const Answer = ({answer}) => {
 
     const user = useSelector(state => state.user.user)
-    const answerToAnswerList = useSelector(state => state.answerList.answerToAnswerList)
+    const answerToAnswerList = useSelector(state => state.answersOfAnswers.answerOfAnswers)
     const dispatch = useDispatch();
 
     const msgModal = {
@@ -36,24 +35,17 @@ export const Answer = ({answer}) => {
     }
 
     const handleDelete = () =>{
-        dispatch(loadAllAnswerToAnswer(answer.id))
+        dispatch(loadAllAnswersToAnswer(answer.parentId, answer.id))
         setOpen(true)
     }
 
-    useEffect(() =>{
-        dispatch(loadAllAnswerToAnswer(answer.id))
-    },[])
-
     return(
         <div>
-            <div>{answer.id}</div>
-            <div>{answer.userId}</div>
-            <div>{answer.parentId}</div>
             <div>{answer.answerBody}</div>
             <div>{answer.score}</div>
             <div>{answer.votes}</div>
-            {/*{answerToAnswerList && answerToAnswerList.map( a =>
-                <AnswersToAnswer answerToAnswer={a} /> )}*/}
+            {answerToAnswerList && answerToAnswerList.map( a =>
+                <AnswersToAnswer answerToAnswer={a} /> )}
             {user && <button className="button" onClick={toggleAnswer}>Responder</button>}
             {user && answering ? <CreateAnswerToAnswerForm id={answer.id} /> : <></>}
             {(user && answer.userId === user.id) &&

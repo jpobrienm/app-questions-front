@@ -16,17 +16,10 @@ const publicNavbarOptions = [
 
 export const PublicNavbar = () =>{
 
-    const dispatch = useDispatch();
-
-    const handleNavigate = () =>{
-        dispatch(questionListLoading());
-    }
-
     return(
         <nav>
             <section>
-                {publicNavbarOptions.map((e,index) =>
-                { return (<Link key={index} to={e.url} onClick={handleNavigate}>{e.titulo}</Link>)})}
+                <Link to={"/"}>Home</Link>
             </section>
         </nav>
     )

@@ -1,22 +1,22 @@
-import { createQuestion } from "../middlewares/questionPayloads";
+import {createQuestion} from "../payloads/questionPayloads";
 import { useState, useEffect } from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {useForm} from "react-hook-form";
 import {useNavigate} from "react-router-dom";
-import {questionListLoading} from "../actions/questionListActions";
+import {loadAllQuestionsByUserId} from "../payloads/questionListPayloads";
 
 export const CreateQuestion = () =>{
 
-    const userData = useSelector(state => state.user.user)
+    const user = useSelector(state => state.user.user)
 
     const {register, handleSubmit} = useForm();
     const dispatch = useDispatch();
     const navigate = useNavigate()
 
     const onSubmit = (data) => {
-        data.userId = userData.id;
+        data.userId = user.id;
         dispatch(createQuestion(data));
-        dispatch(questionListLoading())
+        dispatch(loadAllQuestionsByUserId(user.id))
         navigate("/mispreguntas")
     }
 

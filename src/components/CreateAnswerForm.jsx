@@ -1,6 +1,7 @@
 import {useForm} from "react-hook-form";
 import {useDispatch, useSelector} from "react-redux";
 import {createAnswer} from "../middlewares/dataTransferPayload";
+import {loadAllAnswerByParentId} from "../payloads/answerListPayloads";
 
 
 export const CreateAnswerForm = () =>{
@@ -14,6 +15,7 @@ export const CreateAnswerForm = () =>{
         data.userId = user.id;
         data.parentId = question.id;
         dispatch(createAnswer(data))
+        dispatch(loadAllAnswerByParentId(question.id))
     }
 
     return(

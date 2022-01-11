@@ -1,11 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
-import { loadQuestionById } from "../middlewares/questionPayloads";
-import { loadAllAnswerByParentId } from "../middlewares/answerListPayload";
+import {loadQuestionById} from "../payloads/questionPayloads";
+import {loadAllAnswerByParentId} from "../payloads/answerListPayloads";
 import {useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
 import { Question } from "../components/Question";
 import { Answer } from "../components/Answer";
 import {CreateAnswerForm} from "../components/CreateAnswerForm";
+import {pageLoadedAction} from "../newActions/pageActions";
+import {questionLoading} from "../newActions/questionActions";
 
 
 export const QuestionPage = () =>{
@@ -13,10 +15,14 @@ export const QuestionPage = () =>{
     const {questionId} = useParams();
 
     const dispatch = useDispatch();
-    const {loading, question, error} = useSelector(state => state.question);
-    const answerData = useSelector(state => state.dataTransfer.answerData)
-    const {loadingAnswers, answerList, errorAnswer} = useSelector(state => state.answerList)
-    const userState = useSelector(state => state.user)
+
+    const loadingPage = useSelector(state => state.page.loading)
+
+    const {loading, question} = useSelector(state => state.question);
+
+    const answerList = useSelector(state => state.answerList.answerList)
+
+    const user = useSelector(state => state.user.user)
 
     const [answering, setAnswering] = useState(false);
 
@@ -25,22 +31,22 @@ export const QuestionPage = () =>{
     }
 
     useEffect(() =>{
+        dispatch(questionLoading())
         dispatch(loadQuestionById(questionId))
-        dispatch(loadAllAnswerByParentId(questionId))
         setAnswering(false)
-    }, [answerData])
+    }, [])
 
     return(
         <div>
             {question && <div className="question-excerpt">
                 <Question question={question}/>
-                {userState.user && <button className="button" onClick={toggleAnswer}>Responder</button>}
-                {userState.user && answering ? <CreateAnswerForm /> : <></>}
+                {user && <button className="button" onClick={toggleAnswer}>Responder</button>}
+                {user && answering ? <CreateAnswerForm /> : <></>}
+                {answerList && answerList.map((a) =>
+                    <div className="question-excerpt">
+                        <Answer key={a.id} answer={a}/>
+                    </div>)}
             </div>}
-            {answerList && answerList.map((a) =>
-                <div className="question-excerpt">
-                <Answer key={a.id} answer={a}/>
-            </div>)}
         </div>
     )
 

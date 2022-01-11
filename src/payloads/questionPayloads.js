@@ -27,3 +27,15 @@ export const createQuestion = (data) => (dispatch) =>{
     });
 
 }
+
+export const deleteQuestion = (questionId) => (dispatch) =>{
+
+    const option = questionOptions("", questionId).deleteQuestion;
+
+    axios.request(option).then(function(response){
+        dispatch(questionLoadSuccess(null))
+    }).catch(function(error){
+        dispatch(error.message)
+    });
+
+}

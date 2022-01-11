@@ -1,30 +1,30 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {loadAllQuestions, loadAllQuestionsByUserId} from "../middlewares/questionListPayload";
+import { loadAllQuestionsByUserId} from "../payloads/questionListPayloads";
 import {Question} from "../components/Question";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import {loadQuestionById} from "../middlewares/questionPayloads";
 
 
 export const UserQuestionListPage = () =>{
 
     const dispatch = useDispatch();
-    const user = useSelector(state => state.user.user)
-    const {loading, questionList, error} = useSelector(state => state.questionList);
+    const userQuestions = useSelector(state => state.userQuestions.userQuestions);
 
-    useEffect(() =>{
-        if(loading){
-            dispatch(loadAllQuestionsByUserId(user.id))
-        }
-    }, [loading])
+    const navigate = useNavigate();
+
+
+    const handleOpenQuestion = (id) => () => {
+        dispatch(loadQuestionById(id))
+        navigate(`/preguntas/${id}`)
+    }
 
     return(
         <div>
-            {questionList && questionList.map((q) => {
+            {userQuestions && userQuestions.map((q) => {
                 return (<div className="question-excerpt">
                     <Question key={q.id} question={q}/>
-                    <Link to={`/preguntas/${q.id}`} className="button" >
-                        View Question
-                    </Link>
+                    <button className="button" onClick={handleOpenQuestion(q.id)} > Ver Pregunta </button>
                 </div>)
             })}
         </div>

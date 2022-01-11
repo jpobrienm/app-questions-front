@@ -1,4 +1,4 @@
-import {answerListActionTypes} from "../newActions/answerListActionTypes";
+import {answerListActions} from "../newActions/answerListActions";
 
 const initialState = {
     loading: false,
@@ -7,18 +7,18 @@ const initialState = {
 
 export const answerListReducer = (state=initialState, {type, payload}) =>{
     switch (type){
-        case answerListActionTypes.LOADING_ANSWER_LIST:
+        case answerListActions.LOADING_ANSWER_LIST:
             return({
                 ...state,
                 loading: payload
             })
-        case answerListActionTypes.LOAD_ANSWER_LIST_SUCCESS:
+        case answerListActions.LOAD_ANSWER_LIST_SUCCESS:
             return({
                 ...state,
                 loading: false,
                 answerList: payload
             })
-        case answerListActionTypes.LOAD_ANSWER_LIST_ERROR:
+        case answerListActions.LOAD_ANSWER_LIST_ERROR:
             return ({
                 ...state,
                 loading:false,

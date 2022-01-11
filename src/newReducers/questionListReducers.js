@@ -2,7 +2,8 @@ import {questionListActionTypes} from "../newActions/questionListActions";
 
 const initialstate ={
     loading:false,
-    questionList: null
+    questionList: null,
+    error:null
 }
 
 export const questionListReducer = (state=initialstate, {type, payload}) =>{
@@ -21,7 +22,8 @@ export const questionListReducer = (state=initialstate, {type, payload}) =>{
         case questionListActionTypes.LOAD_QUESTION_LIST_ERROR:
             return({
                 ...state,
-                loading: false
+                loading: false,
+                error: payload
             })
         default:
             return state;

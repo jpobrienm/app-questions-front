@@ -5,7 +5,7 @@ import {answerListReducer} from "./answerListReducer";
 import {answersOfAnswersReducer} from "./answersOfanswersReducer";
 import {questionListReducer} from "./questionListReducers";
 import {combineReducers} from "redux";
-import {dataTransferReducer} from "../reducers/dataTransferReducer";
+import {userQuestionsReducer} from "./userQuestionsReducer";
 
 export const rootReducer = () =>{
     return combineReducers(
@@ -14,9 +14,9 @@ export const rootReducer = () =>{
             user: userReducer,
             question: questionReducer,
             questionList: questionListReducer,
+            userQuestions: userQuestionsReducer,
             answerList: answerListReducer,
             answersOfAnswers:answersOfAnswersReducer,
-            dataTransfer: dataTransferReducer
         }
     );
 }
