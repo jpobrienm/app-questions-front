@@ -29,3 +29,10 @@ export const answerListDeletingAnswer = () =>{
         type: types.DELETING_ANSWER
     })
 }
+
+export const answersToAnswerLoad = (answerList) =>{
+    return({
+        type: types.LOAD_ANSWERS_TO_ANSWERS,
+        payload: answerList
+    })
+}

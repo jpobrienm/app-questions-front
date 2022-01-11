@@ -37,7 +37,8 @@ export const QuestionPage = () =>{
                 {userState.user && <button className="button" onClick={toggleAnswer}>Responder</button>}
                 {userState.user && answering ? <CreateAnswerForm /> : <></>}
             </div>}
-            {answerList && answerList.map((a) => <div className="question-excerpt">
+            {answerList && answerList.map((a) =>
+                <div className="question-excerpt">
                 <Answer key={a.id} answer={a}/>
             </div>)}
         </div>

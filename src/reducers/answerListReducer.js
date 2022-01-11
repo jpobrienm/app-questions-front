@@ -33,6 +33,13 @@ export const answerListReducer = (state=initialState, {type, payload}) =>{
                     loading: true
                 }
             )
+        case types.LOAD_ANSWERS_TO_ANSWERS:
+            return(
+                {
+                    ...state,
+                    answerToAnswerList: payload
+                }
+            )
         default:
             return state;
     }

@@ -17,7 +17,7 @@ export const Question = ({question}) => {
 
     const msgModal = {
         msg: "¿Desea eliminar esta pregunta?",
-        titulo: "Eliminar Respuesta",
+        titulo: "Eliminar pregunta",
     };
 
     const [open, setOpen] = useState(false);

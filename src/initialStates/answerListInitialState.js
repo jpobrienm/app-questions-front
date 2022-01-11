@@ -1,6 +1,6 @@
 export const answerListInitialState = {
     loading: null,
-    selectedId: null,
     answerList: [],
+    answerToAnswerList:[],
     error: null
 }
