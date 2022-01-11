@@ -1,4 +1,3 @@
-
 export const questionOptions = (id="", data={}) => {
     return(
         {

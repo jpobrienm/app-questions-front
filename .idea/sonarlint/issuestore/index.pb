@@ -8,16 +8,8 @@
 package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a
 <
 src/index.js,f\9\f900edc44cb929c2267a16100a32851f6d5b477d
-B
-src/store/store.js,8\b\8bb307fb6db380ef753f957624efd76a44e602c7
-S
-#src/services/questionListOptions.js,c\9\c95fbaf3de2bb99fd8dce5ca1f0d0e11d0775af0
-R
-"src/actionTypes/userActionTypes.js,3\9\396a28b77ca2b269c27df451ed8b3166d58db144
 Y
 )src/initialStates/questionInitialState.js,6\8\686991c59efe3f868e9f2ad684da8c3e1594ddbb
-U
-%src/initialStates/userInitialState.js,d\5\d53b5beb18abfce3e41221814baf5d6bb37c234c
 Z
 *src/actionTypes/questionListActionTypes.js,9\d\9dcc73adb00fbcb8a774510bd1a39b394b6d675c
 S
@@ -32,8 +24,6 @@ N
 src/middlewares/userPayload.js,3\c\3ca0cc8b3d189bc034c9d5b06bc402ce97508167
 V
 &src/middlewares/questionListPayload.js,0\1\0121ac90d2121bdd62e40b98f68a6dde1dfd6df0
-K
-src/reducers/rootReducer.js,0\7\0720fb55b4755f2f91d7c81004625a12754e8b2e
 ]
 -src/initialStates/questionListInitialState.js,8\3\83a2d3cd82adc3295e44830adfc2683ee6211c98
 P
