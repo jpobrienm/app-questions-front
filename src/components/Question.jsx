@@ -6,10 +6,14 @@ import {useEffect, useState} from "react";
 import {Modal} from "./Modal";
 import {deleteQuestion, loadQuestionById} from "../payloads/questionPayloads";
 import {questionListLoading} from "../newActions/questionListActions";
+import {loadUserQuestions} from "../payloads/userQuestionsPayloads";
+import {questionLoading} from "../newActions/questionActions";
 
 export const Question = ({question}) => {
 
     const user = useSelector(state => state.user.user)
+    const loadingQuestion = useSelector(state => state.question.loading)
+    const loadingQuestionList = useSelector(state => state.userQuestions.loading)
     const dispatch = useDispatch();
     const navigate = useNavigate()
 
@@ -26,7 +30,7 @@ export const Question = ({question}) => {
 
     const handleConfirm = (id) => () =>{
         dispatch(deleteQuestion(id))
-        dispatch(questionListLoading())
+        dispatch(questionLoading())
         setOpen(false);
     }
 
@@ -37,6 +41,12 @@ export const Question = ({question}) => {
     const modules = {
         toolbar: false
     };
+
+    useEffect(() =>{
+        if(loadingQuestion){
+            dispatch(loadUserQuestions(user.id))
+        }
+    }, [loadingQuestion])
 
     return(
         <div className="question">

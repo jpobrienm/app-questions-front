@@ -48,8 +48,6 @@ T
 $src/newReducers/answerListReducer.js,c\e\cefaf02308628eb5a396ff25d18f670f8566ff2d
 K
 src/services/userOptions.js,c\8\c8ff6d4ad548eeb9b5f600af7b2bd091f0c98c1c
-Q
-!src/newOptions/questionOptions.js,c\0\c003fdbb0e3ce5f42b6efa279f3c69c34122fec4
 S
 #src/services/questionListOptions.js,c\9\c95fbaf3de2bb99fd8dce5ca1f0d0e11d0775af0
 O
@@ -82,8 +80,6 @@ S
 #src/services/dataTransferOptions.js,0\c\0c86b0cc1d9cb27cb958de9943aa57b59ce4e6cf
 P
  src/pages/CreateQuestionPage.jsx,9\4\94ec3c6d2f35aca162ea6b8ed7ec17d620ba719d
-P
- src/payloads/questionPayloads.js,9\e\9edffbb76a615524a5d78976224c955977aac62d
 S
 #src/newOptions/answerListOptions.js,a\d\ad89a1b92c4b7e1595c0a6440408a5d604b9f184
 Q
@@ -106,8 +102,6 @@ W
 'src/newReducers/questionListReducers.js,a\5\a5c7305902efc2588536bd157f43db10cc21e929
 S
 #src/newActions/answerListActions.js,b\0\b0caa21ff0957d3cd897612e0bc42f34051c2b93
-T
-$src/payloads/questionListPayloads.js,0\6\066c2aeb014ad30cfcfa1e39e465a029ab106c11
 V
 &src/newOptions/userQuestionsOptions.js,3\f\3f39bdf9f0f778ad14fc88a23dff77bb278438f8
 W
@@ -120,8 +114,6 @@ V
 &src/newActions/userQuestionsActions.js,3\b\3b349ab2bdd8f0adb20e0c8f3c5519d6d7489847
 L
 src/payloads/userPayloads.js,c\d\cdcc46b455ed8e76b24230d97b69d36a913d30ea
-U
-%src/payloads/userQuestionsPayloads.js,6\d\6d1b12426c8465ba9df9b4a2bd19075281f09298
 N
 src/newReducers/rootReducer.js,c\7\c7ac1fb4b98e7e27be770cc12e32cc9687463689
 M

@@ -5,8 +5,6 @@ import axios from "axios";
 
 export const loadQuestionById = (id) => (dispatch) => {
 
-    dispatch(questionLoading());
-
     const option = questionOptions(id, {}).getById;
 
     axios.request(option).then(function(response){
@@ -23,19 +21,19 @@ export const createQuestion = (data) => (dispatch) =>{
     axios.request(option).then(function(response){
         dispatch(questionLoadSuccess(response.data))
     }).catch(function(error){
-        console.log(error.message);
+        dispatch(questionLoadError(error.message))
     });
 
 }
 
 export const deleteQuestion = (questionId) => (dispatch) =>{
 
-    const option = questionOptions("", questionId).deleteQuestion;
+    const option = questionOptions(questionId, {}).delete;
 
     axios.request(option).then(function(response){
         dispatch(questionLoadSuccess(null))
     }).catch(function(error){
-        dispatch(error.message)
+        dispatch(questionLoadError(error.message))
     });
 
 }
