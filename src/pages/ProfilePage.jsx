@@ -1,10 +1,10 @@
 import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {updateUser} from "../payloads/userPayloads";
+import { updateUser } from "../payloads/userPayloads";
 import {useNavigate} from "react-router-dom";
 import {useForm} from "react-hook-form";
-import {questionListLoading} from "../actions/questionListActions";
-import {userCreatedAction} from "../actions/dataTransferActions";
+import {questionListLoading} from "../newActions/questionListActions";
+import {userLoggedAction} from "../newActions/userActions";
 
 export const ProfilePage = () => {
 
@@ -20,7 +20,7 @@ export const ProfilePage = () => {
         data.photo = user.photo;
         dispatch(updateUser(data));
         dispatch(questionListLoading())
-        dispatch(userCreatedAction(data))
+        dispatch(userLoggedAction(data))
         navigate("/")
     }
 

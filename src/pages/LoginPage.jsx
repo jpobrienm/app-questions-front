@@ -1,4 +1,4 @@
-import {userLoggedAction, userLogoutAction} from "../newActions/userActions";
+import {userLoggedAction, userLoggingAction, userLogoutAction} from "../newActions/userActions";
 import {createUser, readUser} from "../payloads/userPayloads";
 import {useDispatch, useSelector} from "react-redux";
 import { useNavigate } from "react-router-dom"
@@ -10,9 +10,14 @@ import {loadAllQuestions} from "../payloads/questionListPayloads";
 
 export const LoginPage = () => {
 
-    const user = useSelector(state => state.user.user);
+    const userState = useSelector(state => state.user.user);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    const response = {id: null,
+        userName: null,
+        photo: null,
+        email:null}
 
     const [loginData, setLoginData] = useState({email:null, password:null, error:null})
 
@@ -56,14 +61,15 @@ export const LoginPage = () => {
 
     const logInHandler = () =>{
         app.auth().signInWithPopup(google)
-        dispatch(loadAllQuestions())
+            .then(r => {
+                dispatch(readUser(r.user.multiFactor.user.uid))})
         navigate("/mispreguntas");
     }
 
     return(
         <div className="login-form">
             <h1>Bienvenid@ a Sofka Overflow</h1>
-            {user?
+            {userState?
                 <button className="button" onClick={logOutHandler}>
                     log-out
                 </button> :

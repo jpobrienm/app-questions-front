@@ -15,6 +15,7 @@ export const Question = ({question}) => {
     const user = useSelector(state => state.user.user)
     const dispatch = useDispatch();
     const navigate = useNavigate()
+    const loadingQuestion = useSelector(state => state.question.loading)
 
     const msgModal = {
         msg: "¿Desea eliminar esta pregunta?",
@@ -37,6 +38,12 @@ export const Question = ({question}) => {
         dispatch(loadQuestionById(id))
         setOpen(true)
     }
+
+    useEffect(() =>{
+       if(loadingQuestion){
+           dispatch(loadAllAnswerByParentId(question.id))
+       }
+    }, [loadingQuestion])
 
     const modules = {
         toolbar: false

@@ -22,13 +22,7 @@ export const userOptions = (body={},id="") => {
         readUser:{
             method:"GET",
             url:herokuPath + `usuario/id=${id}`,
-            headers: {'Content-Type': 'application/json'},
-            data: {id: body.id,
-                userName: body.userName,
-                firstNames:body.firstNames,
-                lastNames: body.lastNames,
-                photo:body.photo,
-                email: body.email}
+            headers: {'Content-Type': 'application/json'}
         }
     })
 }

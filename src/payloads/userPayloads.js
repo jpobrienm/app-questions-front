@@ -1,5 +1,5 @@
 import {userOptions} from "../newOptions/userOptions";
-import {userLogError, userLoggedAction} from "../newActions/userActions";
+import {userLogError, userLoggedAction, userLoggingAction} from "../newActions/userActions";
 import axios from "axios";
 
 
@@ -21,18 +21,20 @@ export const updateUser = (user) => (dispatch) =>{
     axios.request(option).then(function(response){
         dispatch(userLoggedAction(response.data))
     }).catch(function(error){
-        dispatch(error.message)
+        dispatch(userLogError(error.message))
     });
 
 }
 
 export const readUser = (id) => (dispatch) =>{
 
+    dispatch(userLoggingAction())
+
     const option = userOptions({}, id).readUser;
 
     axios.request(option).then(function(response){
         dispatch(userLoggedAction(response.data))
     }).catch(function(error){
-        dispatch(error.message)
+        dispatch(userLogError(error.message))
     });
 }
